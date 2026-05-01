@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/homepage.css">
+    <title>Aladdin</title>
+</head>
+
+<!--anchor link-->
+<a id="up"></a>
+<body>
+<header class="Nav-Bar">
+    <!--OPEN BUTTON HOME-->
+    <button id="btnOpen" class="Nav-Bar__open" aria-expanded="false" aria-labelledby="Nav-Label">
+        <img src="/Sources/Hamburger.png" alt="Menu" width="42" height="42">
+    </button>
+
+    <!--CLOSE BUTTON HOME-->
+    <button class="Home-Btn" id="btnClose" aria-label="Close">
+        <img src="/Sources/Home.png" alt="Home" width="35" height="35">
+    </button>
+
+    <img src="/Sources/Logo.png" alt="Aladdin Logo" class="logo">
+
+
+    <nav class="Nav-Bar__nav">
+        <span id="Nav-Label" hidden>Navigation</span>
+
+        <div class="Nav-Bar__menu" role="dialog" aria-labelledby="Nav-Label">
+            <ul class="Nav-Bar__links">
+                
+                <li class="Nav-Bar__item item-desktop-home">
+                    <a href="index.html" class="Nav-Bar__link">
+                        <img src="/Sources/Home.png" alt="Home" width="40" height="40">
+                    </a>
+                </li>
+
+                <li class="Nav-Bar__item item-green dropdown">
+                    <a href="#" class="Nav-Bar__link">Accessories <span class="Nav-Bar__arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="">Rings</a></li>
+                        <li><a href="">Bracelets</a></li>
+                        <li><a href="">Necklaces</a></li>
+                    </ul>
+                </li>
+
+                <li class="Nav-Bar__item item-cream dropdown">
+                    <a href="#" class="Nav-Bar__link">Fragrances <span class="Nav-Bar__arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="">Perfumes</a></li>
+                        <li><a href="">Essential Oils</a></li>
+                        <li><a href="">Incense</a></li>
+                    </ul>
+                </li>
+
+                <li class="Nav-Bar__item item-green dropdown">
+                    <a href="#" class="Nav-Bar__link">Cosmetics <span class="Nav-Bar__arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="">Skincare</a></li>
+                        <li><a href="">Makeup</a></li>
+                        <li><a href="">Bath & Body</a></li>
+                    </ul>
+                </li>
+
+                <li class="Nav-Bar__item item-cream dropdown">
+                    <a href="#" class="Nav-Bar__link">Handmade <span class="Nav-Bar__arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="">Natural Gemstones</a></li>
+                        <li><a href="">Herbal Teas</a></li>
+                        <li><a href="">Organic Soaps</a></li>
+                    </ul>
+                </li>
+
+                <li class="Nav-Bar__item item-about"><a href="" class="Nav-Bar__link">ABOUT US</a></li>
+                <li class="Nav-Bar__item item-contact"><a href="" class="Nav-Bar__link">CONTACT US</a></li>
+            </ul>
+        </div>
+
+    <div class="Nav-Bar__extraBtns">
+        <a href="" class="btn-about">ABOUT US</a>
+        <a href="" class="btn-contact">CONTACT US</a>
+    </div>
+  </nav>  
+    <div class="nav-language">
+        <img src="/Sources/Globe.png" alt="Select Language" class="globe-icon">
+        <div id="google_translate_element"></div>
+    </div>
+
+</header>
+
+<a id="top"></a>
+<!-- CAROUSEL SECTION!!!-->
+    <div class="carousel">
+        <div class="carousel__slide slide_1">
+            <img class="carousel__img" src="/Sources/COMPRESSED VER/carousel 1.jpg" alt="Welcome Slide">
+            
+            <div class="carousel__content">
+                <h1 class="carousel__title">Crafted for Every Moment</h1>
+                <p class="carousel__text">Discover a curated collection of handmade pieces designed to bring beauty and intention to your daily routine. From timeless accessories to organic essentials, find your next favourite staple.</p>
+                <a href="#" class="carousel__btn">EXPLORE NOW</a>
+            </div>
+        </div>
+
+        <div class="carousel__slide slide_2">
+            <img class="carousel__img" src="/Sources/COMPRESSED VER/carousel 2.png" alt="Special Offer">
+            
+            <div class="carousel__content">
+                <h1 class="carousel__title">The Seasonal Edit: Special Offers</h1>
+                <p class="carousel__text">Shop our special offers and save on best-selling beauty and fragrance.</p>
+                <a href="#" class="carousel__btn">REVEAL DEALS</a>
+            </div> 
+        </div>
+
+        <div class="carousel__slide slide_3">
+            <img class="carousel__img" src="/Sources/COMPRESSED VER/carousel 3.png" alt="New Arrivals">
+            
+            <div class="carousel__content">
+                <h1 class="carousel__title">Freshly Curated for You</h1>
+                <p class="carousel__text">Refresh your style, your home, and your routine with our newest arrivals across all categories</p>
+                <a href="#" class="carousel__btn">SHOP NOW</a>
+            </div>
+        </div>
+
+        <div class="carousel__slide slide_4">
+            <img class="carousel__img" src="/Sources/COMPRESSED VER/carousel 4.jpeg" alt="BEST SELLERS">
+            
+            <div class="carousel__content">
+                <h1 class="carousel__title">Timeless Essentials</h1>
+                <p class="carousel__text">Our most-loved artisanal creations, made with intention for your daily rituals. From timeless accessories to organic essentials.</p>
+                <a href="#" class="carousel__btn">MORE FAVORITES</a>
+            </div> 
+        </div>
+    </div>
+
+<!--BEST SELLERS SECTION-->
+
+<div class="best_sellers">
+    <h1>BEST SELLERS</h1>
+    <p>Our community’s most-loved essentials</p>
+
+    <input type="checkbox" id="btnBox" class="toggle-checkbox">
+
+    <div class="best_products">
+        <div class="best_content">
+            <img src="/Sources/COMPRESSED VER/best seller 1.jpeg" alt="">
+            <a href="#" class="best_name">Lattafa Khamrah<br>Qahwa</a>
+        </div>
+        <div class="best_content">
+            <img src="/Sources/COMPRESSED VER/best seller 2.jpeg" alt="">
+            <a href="#" class="best_name">Moonlight Pearl</a>
+        </div>
+        <div class="best_content">
+            <img src="/Sources/COMPRESSED VER/best seller 3.jpeg" alt="">
+            <a href="#" class="best_name">Desert Rose</a>
+        </div>
+        <div class="best_content">
+            <img src="/Sources/COMPRESSED VER/best seller 4.jpeg" alt="">
+            <a href="#" class="best_name">Lafz Oragnix<br>Retinol Cream</a>
+        </div>
+
+        <div class="best_content extra-item">
+            <img src="/Sources/COMPRESSED VER/best seller 5.png" alt="">
+            <a href="#" class="best_name">Asdaaf (Lattafa)</a>
+        </div>
+        <div class="best_content extra-item">
+            <img src="/Sources/COMPRESSED VER/best seller 6.jpeg" alt="">
+            <a href="#" class="best_name">Illuminate Brightening<br>Day Cream</a>
+        </div>
+        <div class="best_content extra-item">
+            <img src="/Sources/COMPRESSED VER/best seller 7.png" alt="">
+            <a href="#" class="best_name">Modern Pearl &<br>Hematite Set</a>
+        </div>
+        <div class="best_content extra-item">
+            <img src="/Sources/COMPRESSED VER/best seller 8.jpeg" alt="">
+            <a href="#" class="best_name">Midnight Bloom<br>Pearl Drops</a>
+        </div>
+    </div>
+
+    <label for="btnBox" class="btn-more">
+        <span class="text-show">Show More</span>
+        <span class="text-hide">Show Less</span>
+    </label>
+</div>
+
+<!--Shop by category section-->
+<div class = "shop_category">
+    <h1>SHOP BY CATEGORY</h1>
+    <p>A handpicked selection of our finest essentials, designed to elevate every aspect of your lifestyle</p>
+
+    <div class = "category_grid">
+        <div class = "category_card">
+            <img src = "/Sources/COMPRESSED VER/category 1.png" alt = "">
+            <div class ="category_text">
+                <h2>Accessories</h2>
+                <a href = "#">View Full Collection</a>
+            </div>
+        </div>
+        <div class = "category_card">
+            <img src = "/Sources/COMPRESSED VER/category 2.png" alt = "">
+            <div class ="category_text">
+                <h2>Fragrance</h2>
+                <a href = "#">View Full Collection</a>
+            </div>
+        </div>
+        <div class = "category_card">
+            <img src = "/Sources/COMPRESSED VER/category 3.png" alt = "">
+            <div class ="category_text">
+                <h2>Cosmetics</h2>
+                <a href = "#">View Full Collection</a>
+            </div>
+        </div>
+        <div class = "category_card">
+            <img src = "/Sources/Handmade.png" alt = "">
+            <div class ="category_text">
+                <h2>Handmade</h2>
+                <a href = "#">View Full Collection</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Heritage / About us section-->
+<div class="heritage_section">
+    <div class="heritage_card">
+        
+        <img src="/Sources/COMPRESSED VER/our story.png" alt=" Perfume Bottles">
+        
+        <div class="heritage_content">
+            <h2>Tradition in Every Treasure</h2>
+            <p>Every piece in our collection is a bridge between heritage and the modern day. We source with intention and craft with soul, ensuring that every treasure you find tells a story as unique as your own</p>
+            <a href="#" class="btn-discover">Discover Our Story</a>
+        </div>
+        
+    </div>
+</div>
+
+<!--Green Separator-->
+<div class="separator">
+    <img src = "/Sources/Separator.png" alt = "page break image">
+    <p>“Where the Heritage District Meets Your Journey”</p>
+</div>
+
+<div class="Map_Section">
+    <div class="map-box">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.9541869105765!2d55.42979797517064!3d25.40634407757688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f57a77da4f955%3A0x676868732bbe2048!2zQWxhZGRpbiBHZW5lcmFsIFRyYWRpbmcg0KHQo9CS0JXQndCY0KDQqywg0KHQm9CQ0JTQntCh0KLQmCDQmCDQn9CQ0KDQpNCu0JzQldCg0JjQrw!5e0!3m2!1sen!2sae!4v1776703377909!5m2!1sen!2sae" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!--Contact us Section & Map-->
+    <div class="content-box">
+        <h1>Our Doors are Always Open</h1>
+        <p class="intro-text">Whether you’re seeking a bespoke gift or have a specific inquiry, our team is here to guide through our collection</p>
+        
+        <p class="adress-phone">
+            <span class="green-text">Address:</span> Al Zahir Street - Al Rumailah - Ajman
+        </p>
+        <p class="adress-phone">
+            <span class="green-text">Telephone:</span> +971 056 277 5717
+        </p>
+
+        <div class="buttons">
+            <a href="#">Our WhatsApp</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </div>
+</div>
+
+<div class="stories_section">
+    <h2>Stories from Our Community</h2>
+
+    <div class="stories_slider">
+        
+                <div class="stories_slider__slide">
+            <div class="review_header">
+                <img src="/Sources/Reviews/af.png" alt="Ibrahim Moursy">
+                <div class="review_card">
+                    <h4>AF</h4>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <p>One of the best souvenir and gift shops in Ajman, it’s affordable, authentic and high quality. Moreover, they always meet you with a smile and understand your gift's purpose. Additionally, add-on they have very nice priceless perfumes. I highly recommend it.</p>
+        </div>
+
+                <div class="stories_slider__slide">
+            <div class="review_header">
+                <img src="/Sources/Reviews/Moursy.png" alt="Ibrahim Moursy">
+                <div class="review_card">
+                    <h4>Ibrahim Moursy</h4>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <p>What a hidden gem!!! one of the most unique gift shops in the UAE. You can't really miss that one out. If you're a tourist or a resident of the UAE, you must pay it a visit :)</p>
+        </div>
+
+                <div class="stories_slider__slide">
+            <div class="review_header">
+                <img src="/Sources/Reviews/Patrik.png" alt="Ibrahim Moursy">
+                <div class="review_card">
+                    <h4>J.Patrick Jim Fowler</h4>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <p>We visited the shop with our family and really enjoyed the shopping. The perfumes are very good and the souvenir are nice . Recommend others to visit and enjoy the shopping </p>
+        </div>
+
+        <div class="stories_slider__slide">
+            <div class="review_header">
+                <img src="/Sources/Reviews/Farrukh.PNG" alt="Ibrahim Moursy">
+                <div class="review_card">
+                    <h4>Farrukh Shahzad Mir </h4>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <p>Very nice souvenir shop for tourists in Ajman. customer-friendly staff. Highly recommended 👍🏻</p>
+        </div>
+
+         <div class="stories_slider__slide">
+            <div class="review_header">
+                <img src="/Sources/Reviews/AM.PNG" alt="Ibrahim Moursy">
+                <div class="review_card">
+                    <h4>AM</h4>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <p>Very well organized and clean place, with affordable goods and a range of souvenirs to buy.</p>
+        </div>
+
+         <div class="stories_slider__slide">
+            <div class="review_header">
+                <img src="/Sources/Reviews/Talshyn.PNG" alt="Ibrahim Moursy">
+                <div class="review_card">
+                    <h4>Talshyn Kabidenova </h4>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <p>It’s a great place with a wonderful service and attitude for each client. Thank you, Alona 🤍</p>
+        </div>
+
+         <div class="stories_slider__slide">
+            <div class="review_header">
+                <img src="/Sources/Reviews/Omar.PNG" alt="Ibrahim Moursy">
+                <div class="review_card">
+                    <h4>Omar Elsheshtawy</h4>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <p>Best luxury place to go with very good prices and best service❤️❤️</p>
+        </div>
+
+        <div class="stories_slider__slide">
+            <div class="review_header">
+                <img src="/Sources/Reviews/yulia.png" alt="Yulia Perepeliak">
+                <div class="review_card">
+                    <h4>Yulia Perepeliak</h4>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <p>Best gifts boutique in Ajman for price/quality! Highly recommend 👌🏻 Arabic parfumerie, sweets, souvenirs and cosmetic. I'm a regular customer 😊</p>
+        </div>
+
+        <div class="stories_slider__slide">
+            <div class="review_header">
+                <img src="/Sources/Reviews/Xenia.PNG" alt="Farah Elbastawisy">
+                <div class="review_card">
+                    <h4>Xenia</h4>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <p>A shop where you're sure to find something you'll love: jewelry, dates, coffee, souvenirs, and excellent quality oils! I highly recommend it. And the owner is very pleasant and friendly!
+A shop where you're sure to find something you'll love: jewelry, dates, coffee, souvenirs, and excellent quality oils! I highly recommend it. And the owner is very pleasant and friendly!</p>
+        </div>
+
+    </div>
+</div>
+
+<!--FAQ SECTION-->
+
+<div class="FAQ">
+    
+    <div class="FAQ-Design">
+        <h1>Questions?</h1>
+        <p>We’re here to ensure your journey with us is seamless. Find quick answers to our most-asked questions below.</p>
+        <img src="/Sources/COMPRESSED VER/FAQs.png" alt="FAQ Image">
+    </div>
+
+    <div class="FAQ_Questions">
+        
+        <div class="faq_content">
+            <button id="btn-faq-1" aria-expanded="false" aria-controls="panel-faq-1" class="accordion">
+                Where are you located?
+                <span class="expander down">▶</span>
+            </button>
+            <div id="panel-faq-1" role="region" aria-labelledby="btn-faq-1" class="faq_answer">
+                <p>We are located at Al Zahir Street - Al Rumailah - Ajman!</p>
+            </div>
+        </div>
+
+        <div class="faq_content">
+            <button id="btn-faq-2" aria-expanded="false" aria-controls="panel-faq-2" class="accordion">
+                Is there a delivery?
+                <span class="expander down">▶</span>
+            </button>
+            <div id="panel-faq-2" role="region" aria-labelledby="btn-faq-2" class="faq_answer">
+                <p>Yes! We deliver everywhere across the UAE.</p>
+            </div>
+        </div>
+
+        <div class="faq_content">
+            <button id="btn-faq-3" aria-expanded="false" aria-controls="panel-faq-3" class="accordion">
+                Opening hours?
+                <span class="expander down">▶</span>
+            </button>
+            <div id="panel-faq-3" role="region" aria-labelledby="btn-faq-3" class="faq_answer">
+                <p>We are open Monday to Saturday from 10:00 AM to 10:00 PM.</p>
+            </div>
+        </div>
+
+        <div class="faq_content">
+            <button id="btn-faq-4" aria-expanded="false" aria-controls="panel-faq-4" class="accordion">
+                Do you make gift sets?
+                <span class="expander down">▶</span>
+            </button>
+            <div id="panel-faq-4" role="region" aria-labelledby="btn-faq-4" class="faq_answer">
+                <p>Absolutely! We specialize in bespoke gift sets for any occasion.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<a href="#up" class="back_top">▲</a>
+
+<footer class="footer">
+    <div class="footer_container">
+        
+        <div class="footer_links">
+            
+            <div class="footer_column">
+                <h3>Find Us</h3>
+                <p><strong>Address:</strong> Al Zahir Street - Al Rumailah - Ajman</p>
+                <p><strong>Telephone:</strong> +971 056 277 5717</p>
+            </div>
+
+            <div class="footer_column">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Fragrance</a></li>
+                    <li><a href="#">Cosmetics</a></li>
+                    <li><a href="#">Food Items</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_column">
+                <h3>Help</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Frequently Asked Questions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_column">
+                <h3>Socials</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+            
+        </div>
+
+        <div class="footer_logo">
+            <img src="/Sources/Logo_Footer.png" alt="Aladdin Logo Footer">
+        </div>
+
+    </div>
+</footer>
+
+<script src="/JavaScript/scripts.js"></script>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,ar,ru'
+  }, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

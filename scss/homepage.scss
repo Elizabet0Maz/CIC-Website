@@ -1,0 +1,1903 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+//fonts
+$font-main: 'Lato', sans-serif;
+$font-heading: 'Playfair Display', serif;
+
+//Colour Palettes 
+$cream: #F8F5EF;
+$dark-caramel: #F9E8D6;
+$light-green: #CADFD5; 
+$dark-green: #508167;  
+$caramel: #B58859;
+
+body {
+    margin: 0;
+    font-family: $font-main;
+    background-color: $cream;
+}
+
+// Breakpoints
+@mixin bp($point) {
+    @if $point == desktop {
+        @media (min-width: 1025px) { @content; } 
+    } @else if $point == tablet {
+        @media (min-width: 720px) and (max-width: 1024px) { @content; } 
+    } @else if $point == mobile {
+        @media (max-width: 719px) { @content; }
+    } 
+}
+
+
+
+
+// FOR MY TEAM, THIS PART IS THE HEADER SCROLL DOWN UNTIL THE END TO FIND SIMILAR TEXT. TO KNOW WHERE IT ENDS!!!!
+// general Nav Bar style
+.Nav-Bar {
+    display: flex;
+    align-items: center;
+
+    position: relative; 
+    justify-content: center;
+    background-color: $cream; 
+    padding: 1em;
+
+    @include bp(desktop) {
+        padding: 1rem 3%; 
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        align-items: center;
+        justify-content: space-between; 
+    }
+
+    // Logo styling
+    .logo {
+        width: 60px; 
+        height: 60px;
+
+        @include bp(desktop) {
+            width: 90px; 
+            height: 90px;
+            margin-right: auto;
+        }
+
+        @include bp(tablet) {
+            margin-left: 4.5rem;
+            margin-right: auto;
+        }
+        @include bp(mobile){
+            margin-right: auto;
+            margin-left: 4rem;
+        }
+    }
+
+    &__nav {
+        @include bp(desktop) {
+            display: flex;
+            align-items: center;
+            gap: 3rem; 
+            justify-content: center; 
+            margin-left: -2rem;
+        }
+    }
+
+    // open and close menu buttons using aria-expanded
+    &__open {
+        position: absolute;
+        left: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        padding: 0;
+
+        @include bp(desktop) { 
+            display: none; 
+        }
+
+        &[aria-expanded='true'] {
+            display: none;
+            ~ nav .Nav-Bar__menu { 
+                transform: translateX(0); 
+            }
+            ~ .Home-Btn { 
+                display: block; 
+            }
+        }
+    }
+
+    .Home-Btn {
+        position: absolute;
+        left: 1.5rem; 
+        background: none; 
+        border: none;     
+        padding: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: none; 
+    }
+
+
+    //menu styling
+    &__menu {
+        @include bp(mobile) {
+            position: absolute; 
+            top: 100%;          
+            left: 0;            
+            width: 100%;        
+            height: 100vh;      
+            padding: 0; 
+            display: flex;
+            background-color: $cream; 
+            z-index: 100;
+            transition: transform 0.5s ease-in-out;
+            transform: translateX(-100vw); 
+        }
+
+        @include bp(tablet) {
+            position: absolute; 
+            top: 100%;          
+            left: 0;            
+            width: 100%;        
+            height: 100vh;      
+            padding: 0; 
+            display: flex;
+            background-color: $cream; 
+            z-index: 100;
+            transition: transform 0.5s ease-in-out;
+            transform: translateX(-100vw); 
+        }
+    }
+
+//style for categories and links
+    &__links {
+        //styles for ul
+        display: flex;
+        margin: 0;
+        padding: 0;
+        width: 100%; 
+
+        @include bp(mobile) { 
+            flex-direction: column; 
+        }
+        @include bp(tablet) {
+             flex-direction: column; 
+            }
+
+        @include bp(desktop) {
+            justify-content: center;
+            align-items: center;
+            font-size: 1.15rem;
+            gap: 1rem;
+            //margin-left: 10rem;
+        }
+
+        //styles for li
+        li {
+            list-style-type: none;
+
+            //wrote code this way to keep it more readable
+            @include bp(mobile) {
+                width: 100%; 
+                &.item-green { background-color: $light-green; }
+                &.item-cream { background-color: $cream; }
+                &.item-about { background-color: $dark-green; a { color: white; } }
+                &.item-contact { background-color: $caramel; a { color: white; } }
+            }
+
+            @include bp(tablet) {
+                width: 100%; 
+                &.item-green { background-color: $light-green; }
+                &.item-cream { background-color: $cream; }
+                &.item-about { background-color: $dark-green; a { color: white; } }
+                &.item-contact { background-color: $caramel; a { color: white; } }
+            }
+
+            //hides extra buttons contact us & about us
+            &.item-about,&.item-contact {
+                @include bp(tablet) { 
+                    display: none; 
+                }
+                @include bp(desktop) { 
+                    display: none; 
+                }
+            }
+
+            // styled links
+            a {
+                display: flex;
+                align-items: center;
+                text-decoration: none; 
+                color: $dark-green;
+                font-weight: bold;
+                white-space: nowrap;
+
+                @include bp(mobile) {
+                    padding: 2rem 1.5rem; 
+                    font-size: 1.25rem;
+                    justify-content: space-between; 
+                }
+
+                @include bp(tablet) {
+                    padding: 2rem 1.5rem; 
+                    font-size: 1.25rem;
+                    justify-content: space-between;
+                }
+
+                @include bp(desktop) {
+                    padding: 0rem;
+                    font-size: 1rem;
+                    justify-content: center;
+                    gap: 0.5rem;
+                }
+            }
+        }
+    }
+
+    //Tablet & desktop btns 
+    &__extraBtns {
+        display: none;
+        
+        a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .btn-about { 
+            background-color: $light-green; 
+            color: black; 
+        }
+        .btn-contact { 
+            background-color: $caramel; 
+            color: white; 
+        }
+
+        @include bp(tablet) {
+            display: flex;
+            flex-direction: row; 
+            position: absolute;
+            right: 21.5%; 
+            top: 50%;
+            transform: translateY(-50%);
+            gap: 1rem; 
+            a { 
+                font-size: 1rem;
+             } 
+        }
+        
+        @include bp(desktop) {
+            display: flex;
+            //position: absolute;
+            //right: 12em; 
+            margin-left: auto;
+            //top: 50%;
+            transform: translateY(-50%);
+            gap: 1rem; 
+            margin-bottom: -2rem;
+        }
+    }
+
+    // dropdown menu design
+    .dropdown {
+        position: relative; 
+
+        .dropdown-menu {
+            display: none; 
+            padding: 0;
+            margin: 0;
+            
+            li { list-style: none; }
+            a { display: block; text-decoration: none; }
+
+            @include bp(mobile) {
+
+                //keeping the dark and transparent to make subcategories box look good
+                background-color: rgba(0, 0, 0, 0.04);
+                a {
+                    padding: 1rem 1.5rem 1rem 3rem; 
+                    font-size: 1.1rem;
+                    color: $dark-green;
+                    font-weight: normal; 
+                    border-left: 4px solid $dark-green; 
+                }
+            }
+
+            @include bp(tablet) {
+                background-color: rgba(0, 0, 0, 0.04);
+                a {
+                    padding: 1rem 1.5rem 1rem 3rem; 
+                    font-size: 1.1rem;
+                    color: $dark-green;
+                    font-weight: normal; 
+                    border-left: 4px solid $dark-green; 
+                }
+            }
+
+            @include bp(desktop) {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: white;
+                min-width: 200px;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+                z-index: 200;
+                border-radius: 4px;
+                a {
+                    padding: 1rem 1.5rem;
+                    color: $dark-green;
+                    font-weight: bold;
+                    font-size: 0.95rem;
+                    &:hover { 
+                        background-color: $light-green; 
+                    }
+                }
+            }
+        }
+
+        //Reacts in order to display drop down menu 
+        //(&focus-within makes sure that the elements remain clicked on so the hamburger menu won't collapse..)
+        &:hover, &:active, &:focus-within {
+            .dropdown-menu { 
+                display: block; 
+            }
+
+            @include bp(mobile) { 
+                .Nav-Bar__arrow { 
+                    transform: rotate(0deg); 
+                } }
+            @include bp(tablet) { 
+                .Nav-Bar__arrow { 
+                    transform: rotate(0deg); 
+                } }
+            @include bp(desktop) { 
+                .Nav-Bar__arrow { 
+                    transform: rotate(180deg); 
+                } }
+        }
+    }
+
+    //arrow appearance & behaviour..
+    &__arrow {
+        display: inline-block;
+        transition: transform 0.3s ease;
+
+        @include bp(mobile) {
+            margin-top: 3px;
+            font-size: 3rem;
+            transform: rotate(-90deg); 
+        }
+
+        @include bp(tablet) {
+            margin-top: 3px;
+            font-size: 3rem;
+            transform: rotate(-90deg); 
+        }
+
+        @include bp(desktop) {
+            font-size: 0.9rem;
+            transform: rotate(0deg); 
+            padding: 1em;
+        }
+    }
+
+    // home button for desktop exclusively
+    &__item.item-desktop-home {
+        @include bp(mobile) { 
+            display: none; 
+        }
+        @include bp(tablet){ 
+            display: none; 
+        }
+        
+        @include bp(desktop) {
+            display: flex;
+            //margin-left: -38rem;
+            padding-right: 1rem;
+            padding-left:2.5rem;
+            
+            img {
+                transition: transform 0.2s ease;
+                &:hover { transform: scale(1.1); }
+            }
+        }
+    }
+//translate section styling
+.nav-language {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    //margin-right: auto
+    //margin-left: 7rem
+    justify-self: end; 
+
+    @include bp(mobile) {
+        gap:0;
+    }
+    .globe-icon {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+
+        @include bp(mobile){
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+    #google_translate_element select {
+        font-size: 1rem;
+        background: none;
+        color: $dark-green;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 12px;
+        font-family: $font-main;
+        outline: none;
+        border: none;
+
+        @include bp(mobile){
+        font-size: .8rem;
+    }
+    }
+}
+}
+body {
+    top: 0 !important;
+}
+
+body > .skiptranslate,
+.goog-logo-link,
+.gskiptranslate,
+.goog-te-gadget span,
+.goog-te-banner-frame,
+#goog-gt-tt, 
+.goog-te-balloon-frame,
+div#goog-gt- {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    color: transparent !important;
+    font-size: 0px !important;
+}
+
+.goog-text-highlight {
+    background: none !important;
+    box-shadow: none !important;
+}
+
+//END OF THE HEADER!!!!!
+
+
+
+
+// START OF CAROUSEL SECTION!!
+
+
+.carousel {
+    display: flex; 
+    //flex-wrap: nowrap;
+    overflow-x: auto; 
+    scroll-snap-type: x mandatory; 
+    width: 100%;
+    scroll-behavior: smooth; //smooth scrolling
+    scroll-snap-type: x mandatory; //this helps to make sure that we will end up 100% on the next slide when scrolling
+    anchor-name: --carousel;
+    scroll-marker-group: after;
+    position: relative;
+
+    border-bottom: 12px solid #9fb0a2; // a separator line
+
+    //style of the slides
+&__slide {
+        flex: 0 0 100%; 
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+        
+        @include bp(mobile) {
+            height: 320px; 
+            flex-direction: row;
+        }
+        
+        @include bp(tablet) { 
+            height: 450px; 
+        }
+        @include bp(desktop) { 
+            height: 700px; 
+        }
+    }
+
+
+    //style of presented images
+    &__img {
+        width: 45%;
+        height: 100%;
+        object-fit: cover;//spreads the image
+        
+        @include bp(tablet){
+            width: 43%;
+        }
+
+        @include bp(mobile) { 
+            width: 37%; 
+            height: 100%; 
+        }
+    }
+
+    //general styling inside the content box
+    &__content {
+        width: 50%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        align-items: flex-start; 
+        padding: 4rem 4rem; 
+
+        @include bp(mobile) { 
+            width: 65%; 
+            padding: 1rem; 
+        }
+        @include bp(tablet) { 
+            padding: 2rem 2rem; 
+    }
+    }
+
+
+    //title style
+    &__title {
+        font-family: $font-heading; 
+        font-size: 4.3rem;
+        color: #000;
+        margin: 0 0 1.5rem 0;
+        line-height: 1.1;
+
+        @include bp(tablet){
+            font-size: 2rem;
+            margin-top: -.5em;
+        }
+
+        @include bp(mobile) { 
+            margin-top: -1em;
+            font-size: 1.3rem; 
+            line-height: 1;
+        }
+    }
+
+
+    //text style
+    &__text {
+        font-family: $font-main; 
+        color: $dark-green; 
+        font-size: 1.6rem;
+        line-height: 1.6;
+        margin: 0 0 2.5rem 0;
+
+        @include bp(tablet){
+            font-size: 1rem;
+
+        }
+
+        @include bp(mobile) { 
+            line-height: 1.3;
+            font-size: 0.7rem; 
+            padding-right: 3.5em;
+            margin-top: -1em;
+        }
+    }
+
+    //Deals button style
+    &__btn {
+        background-color: $caramel; 
+        color: white;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        font-weight: bold;
+        font-size: 1rem;
+        border-radius: 4px;
+        transition: opacity 0.2s ease;
+        
+        &:hover { opacity: 0.8; }
+
+        @include bp(mobile) {
+            padding: .5em .5em;
+            font-size: .8rem;
+            margin-top: -1.6em;
+        }
+
+        @include bp(tablet) {
+            padding: .5em .5em;
+            font-size: 1em;
+            margin-top: -1em;
+        }
+    }
+}
+
+//hides the actual typical scroll bar
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+
+//the general group of dots
+.carousel::scroll-marker-group {
+    display: flex;
+    justify-content: center;
+    gap: 0.6em;
+    position: relative; 
+    margin-top: -2rem;
+    z-index: 10;
+
+    @include bp(desktop) {
+        gap: 1.2em;
+        position: relative; 
+        margin-top: -2.5rem;
+        bottom: auto; 
+        left: auto;
+        transform: none; 
+    }
+}
+//carousel dots
+.carousel__slide::scroll-marker {
+    content: '';
+    height: 0.5em;
+    width: 0.5em;
+    background-color: gray;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: all 0.3s ease;
+
+    @include bp(desktop) {
+        height: .7em;
+        width: .7em;
+    }
+
+}
+
+//The active dot in the carousel
+.carousel__slide::scroll-marker:target-current {
+    opacity: 1;
+    background-color: #4E4B4B;
+    transform: scale(1.2);
+}
+
+
+//right button in the carousel
+.carousel::scroll-button(right) {
+    content: ' ';
+    border: none;
+    background-color: rgba(0, 0, 0, 50%); 
+    font-size: 3rem;
+    color: white;
+    height: 2.3em;
+    width: 2.3em;
+    border-radius: 50%;
+    padding-bottom: .1em;
+    cursor: pointer;
+    
+    //image settings of the button
+    background-image: url('/Sources/right_arrow.png'); 
+    background-position: center;
+    background-repeat: no-repeat;     
+    background-size: 40%;
+
+    position: absolute; 
+    position-anchor: --carousel;
+    position-area: center right;
+    margin-right: 1rem; 
+
+//tablet size
+    @include bp(tablet) {
+        margin-left: .5rem; 
+        height: 1.5em;
+        width: 1.5em;
+    }
+
+    //phone size
+    @include bp(mobile) {
+        height: 0.9em;
+        width: .9em;
+        margin-right: .5rem; 
+    }
+}
+
+//Left button of the carousel
+.carousel::scroll-button(left) {
+    content: '';
+    border: none;
+    background-color: rgba(0, 0, 0, 50%); 
+    font-size: 3rem;
+    color: white;
+    height: 2.3em;
+    width: 2.3em;
+    border-radius: 50%;
+    padding-bottom: .1em;
+    cursor: pointer;
+
+    background-image: url('/Sources/left_arrow.png'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40%;
+
+    position: absolute;
+    position-anchor: --carousel;
+    position-area: center left;
+    margin-left: 1rem; 
+
+        @include bp(tablet) {
+        margin-left: .5rem; 
+        height: 1.5em;
+        width: 1.5em;
+    }
+
+    @include bp(mobile) {
+        margin-left: .5rem; 
+        height: .9em;
+        width: .9em;
+    }
+}
+
+//END OF THE CAROUSEL!!!
+
+//START OF BEST SELLERS
+
+.best_sellers {
+    padding: 5rem 3rem; 
+    max-width: 1700px;
+    margin: 0 auto;
+
+    @include bp(tablet) { 
+        padding: 4rem 3rem;
+     }
+    @include bp(mobile){ 
+        padding: 3rem 1.5rem; 
+    }
+
+    //style of the Header and subheader in the best selling product section..
+    h1 {
+        font-family: $font-heading;
+        color: $dark-green;
+        font-size: 3.5rem;
+        margin: 0 0 0.2rem 0;
+        text-transform: uppercase;
+
+        @include bp(tablet) { 
+            font-size: 2.5rem; 
+        }
+
+        @include bp(mobile) { 
+            font-size: 1.7rem; 
+        }
+    }
+
+    p {
+        font-family: $font-main;
+        font-style: italic;
+        font-size: 1.3rem;
+        color: black;
+        margin: 0 0 3rem 0;
+
+        @include bp(mobile) { 
+            font-size: 1.1rem; 
+            margin-bottom: 2rem; 
+        }
+    }
+
+    //the style of the grid of the best selling product
+    .best_products {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 4rem;
+        margin-bottom: 0rem;
+
+        @include bp(mobile) { 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 2rem;
+            margin-bottom: -1rem;
+        }
+
+        @include bp(tablet){
+            gap:2rem;
+        }
+    }
+
+    //style of the best selling product 
+    .best_content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        img {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover; //spreads the image
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); //for shadow
+            transition: transform 0.3s ease;
+            
+            // animation
+            &:hover { transform: translateY(-5px); }
+        }
+    }
+
+    //style of the name in the best selling product
+    .best_name {
+        font-family: $font-main;
+        font-weight: bold;
+        font-size: 1.6rem;
+        color: $dark-green;
+        text-decoration: none;
+        line-height: 1.3;
+        transition: opacity 0.2s ease;
+
+        &:hover { opacity: 0.7; }
+        
+        @include bp(mobile) {
+        font-size: 1.15rem;
+    }
+
+    @include bp (tablet){
+        font-size: 1.15rem;
+    }
+    }
+
+    //btn show more style
+    .btn-more {
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+        background-color: $caramel; 
+        color: white;
+        text-decoration: none;
+        padding: 1.5rem 5rem;
+        font-weight: bold;
+        font-size: 2rem;
+        border-radius: 4px;
+        transition: opacity 0.2s ease;
+
+        &:hover { opacity: 0.8; }
+
+       @include bp(mobile) {
+        font-size: 1.3rem;
+        padding: 1rem 2.5rem;
+       } 
+
+       @include bp(tablet) {
+        font-size: 1.5rem;
+       }
+    }
+}
+
+.toggle-checkbox {
+        display: none; 
+    }
+
+//Button functionality show more
+    //this is a counter that hides the other 4 pictures
+    .best_products .best_content:nth-child(n + 5) {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+
+        transition: max-height 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    }
+
+    .btn-more .text-hide {
+        display: none;
+    }
+
+    .btn-more {
+        cursor: pointer;
+        display: block;
+        width: fit-content;
+        margin: 0 auto; 
+    }
+
+    //Active state of the browser
+    
+    // specifically counter targets the fifth item in order to open, it could also work with 0 number but can add to workload...
+    .toggle-checkbox:checked ~ .best_products .best_content:nth-child(n + 5) {
+        max-height: 1000px;
+        opacity: 1;
+    }
+
+    // button margin spacing between the text and the btn after it's active
+    .toggle-checkbox:checked ~ .btn-more {
+        margin-top: 4rem; 
+    }
+
+    //Button swapping
+    .toggle-checkbox:checked ~ .btn-more .text-show {
+        display: none;
+    }
+
+    .toggle-checkbox:checked ~ .btn-more .text-hide {
+        display: inline; 
+    }
+
+
+//END OF BEST SELLERS
+
+    //SHOP CATEGORY SECTION
+    .shop_category {
+    padding: 5rem 3rem; 
+    max-width: 1700px;
+    margin: 0 auto;
+
+    @include bp(tablet) { 
+        padding: 4rem 3rem;
+     }
+    @include bp(mobile){ 
+        padding: 3rem 1.5rem; 
+    }
+
+        h1 {
+        font-family: $font-heading;
+        color: $dark-green;
+        font-size: 3.5rem;
+        margin: 0 0 0.2rem 0;
+        text-transform: uppercase;
+
+        @include bp(tablet) { 
+            font-size: 2.5rem; 
+        }
+
+        @include bp(mobile) { 
+            font-size: 1.7rem; 
+        }
+    }
+
+    p {
+        font-family: $font-main;
+        font-style: italic;
+        font-size: 1.3rem;
+        color: black;
+        margin: 0 0 3rem 0;
+
+        @include bp(tablet) { 
+           padding-right: 1.5rem;
+        }
+
+        @include bp(mobile) { 
+            font-size: 1.1rem; 
+            margin-bottom: 2rem; 
+            padding-right: .9rem;
+        }
+    }
+
+    .category_grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 4rem;
+        margin-bottom: 0rem;
+
+        
+        @include bp(mobile) { 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 1rem;
+            margin-bottom: -1rem;
+        }
+        
+        @include bp(tablet){
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 2rem;
+        }
+    }
+
+    .category_card {
+        border-radius: 20px;
+        overflow: hidden; 
+        cursor: pointer;
+        flex-direction: column;
+        display: block; 
+        text-align: left;
+        img {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover; //spreads the image
+            display: block;
+            transition: transform 0.3s ease;
+
+            @include bp(tablet) {
+                aspect-ratio: 16 / 10; 
+            }
+        }
+        .category_text {
+            margin-top: -6.5rem; 
+            padding: 0 2rem 2rem 2rem; 
+            position: relative; //relative position forces text on top of the image
+            z-index: 2;
+
+            @include bp(mobile) {
+                margin-top: -4rem; 
+                padding: 0 1rem 1rem 1.2rem; 
+            }
+
+            h2 {
+                font-family: $font-heading;
+                color: white;
+                font-size: 2rem;
+                margin: 0 0 0.5rem 0;
+                line-height: 1.1;
+                
+                
+                @include bp(tablet) {
+                margin-top: -5.5rem;
+                font-size: 1.7;
+            }
+
+                @include bp(mobile) { 
+                    font-size: 1rem; 
+                    margin-bottom: -.2rem;
+                    margin-left: -.4em;
+                }
+            }
+
+            a {
+                font-family: $font-main;
+                color: #CADFD5;
+                text-decoration: none;
+                font-size: 1.1rem;
+                border-bottom: 1px solid white; 
+                padding-bottom: 0.2rem;
+                transition: opacity 0.2s ease;
+
+                &:hover {
+                    opacity: 0.7;
+                }
+
+                @include bp (mobile){
+                    font-size: .7rem;
+                    margin-left: -.4em;
+                }
+            }
+        }
+    }
+}
+//END OF CATEGORY SECTION
+
+// START OF HERITAGE SECTION
+
+
+.heritage_section {
+    
+    max-width: 1200px; 
+    margin: 0 auto;
+
+    @include bp(tablet) { 
+        padding: 4rem 3rem; 
+    }
+    @include bp(mobile) { 
+        padding: 3rem 1.5rem; 
+    }
+
+    .heritage_card {
+        background-color: #F4EAE1; 
+        border-radius: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        align-items: stretch; 
+        
+        padding: 1rem; 
+
+        @include bp(desktop) {
+            height: 40rem; 
+        }
+        @include bp(tablet) {
+            padding: .7rem;
+            height: auto;
+        }
+
+        @include bp(mobile) {
+            grid-template-columns: 1fr; 
+            padding: 1rem;
+            height: auto; 
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px; 
+            display: block;
+
+            @include bp(mobile) {
+                aspect-ratio: 16 / 10;
+            }
+        }
+
+        .heritage_content {
+            padding: 0 2rem; 
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; 
+
+            @include bp(tablet) {
+                padding: 2rem 1rem 0 1rem; 
+            }
+
+            @include bp(mobile) {
+                padding: 1.5rem 0.5rem 0 0.5rem;
+            }
+
+            h2 {
+                font-family: $font-heading;
+                color: $dark-green;
+                font-size: 2.8rem; 
+                margin: 0 0 0.5rem 0; 
+                white-space: nowrap;
+
+                @include bp(tablet) { 
+                    font-size: 2.2rem; 
+                    white-space: wrap;
+                }
+                @include bp(mobile) { 
+                    white-space: wrap;
+                    font-size: 2.2rem; 
+                }
+            }
+
+            p {
+                color: #333; 
+                line-height: 1.4; 
+                margin: 0 0 1.5rem 0;
+                font-family: $font-main;
+                font-size: 1.3rem; 
+ 
+
+                @include bp(tablet){
+                    font-size: 1rem;
+
+                }
+
+                @include bp(mobile) { 
+                    font-size: .9rem; 
+                    margin-bottom: 1.5rem; 
+                }
+            }
+
+            .btn-discover {
+                background-color: $caramel;
+                color: white;
+                text-decoration: none;
+                padding: 1rem 2.5rem; 
+                font-weight: bold;
+                font-size: 1.1rem;
+                border-radius: 4px;
+                transition: opacity 0.2s ease;
+
+                &:hover { opacity: 0.8; }
+
+                @include bp(mobile) {
+                    padding: 0.8rem 2rem;
+                    margin-bottom: 1.5rem;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+//END OF HERITAGE SECTION
+
+//START OF GREEN BREAK SECTION. . . 
+
+.separator {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 11.5rem; 
+    overflow: hidden;
+
+    @include bp(mobile){
+        height: 8.5rem;
+    }
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+        margin-top: 2rem;
+
+    }
+    p{
+        z-index: 1000;
+        color: white;
+        font-style: italic;
+        font-size: 1.8rem;
+        font-family: $font-heading;
+        position:relative;
+        margin-top: 4rem;
+
+        @include bp(tablet){
+            font-size: 1.5rem;
+        }
+
+        @include bp(mobile) {
+            margin-top: 3.5rem;
+            font-size: 1rem;
+        }
+
+    }
+}
+//END OF SEPARATOR
+
+//BEGINING OF THE MAP / CONTACT US SECTION
+
+.Map_Section {
+    grid-template-columns: 1fr 1fr; 
+    display: grid;
+    gap: 5rem;
+    align-items: center;
+    padding: 5rem 3rem;
+    max-width: 130rem;
+    margin: 0 auto;
+
+
+    @include bp(tablet) { 
+        gap: 1.5rem; 
+        padding: 4rem 2rem; 
+    }
+
+    @include bp(mobile) { 
+        display: flex; 
+        flex-direction: column-reverse; 
+        grid-template-columns: 1fr;
+        padding: 3rem 1.5rem; 
+    }
+
+    .map-box {
+
+        width: 100%;
+        height: 25rem; 
+
+        @include bp(tablet) { 
+            height: 22rem; 
+        } 
+        @include bp(mobile) {
+
+            height: 18.75rem; 
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px; 
+            object-fit: cover;
+        }
+    }
+
+    .content-box {
+        text-align: center;
+        align-content: center;
+
+        h1{
+            color: $dark-green;
+            font-size: 3rem;
+            font-family: $font-heading;
+
+            margin: 0 0 1rem 0;
+
+            @include bp(tablet){ 
+                font-size: 1.8rem; 
+            }
+
+            @include bp(mobile){
+                font-size: 1.5rem;
+            }
+        }
+
+        .intro-text {
+            font-family: $font-main;
+            font-size: 1.15rem;
+            font-style: italic;
+            color: black;
+            line-height: 1.4;
+            margin: 0 0 2rem 0;
+
+            @include bp(mobile) { 
+                font-size: 1rem; 
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+
+        .adress-phone {
+            font-family: $font-main;
+            font-size: 1.15rem;
+            color: black;
+            margin-top: 2rem;
+
+            @include bp(mobile) { 
+                font-size: 1rem; 
+            }
+
+            .green-text {
+                color: $dark-green;
+                font-weight: bold;
+            }
+        }
+
+        .buttons{
+            display: flex;
+            gap: 2rem;
+            margin-top: 4rem;
+            justify-content: center;
+            
+            a {
+                background-color: $caramel;
+                color: white;
+                text-decoration: none;
+                padding: 1rem 2.5rem;
+                font-weight: bold;
+                font-size: 1.1rem;
+                border-radius: 4px;
+                transition: opacity 0.2s ease;
+                white-space: nowrap;
+
+                &:hover { 
+                    opacity: 0.8; 
+                }
+
+                @include bp(mobile){
+                    padding: .6rem 1.1rem;
+                    font-size:1rem;
+                }
+            }
+        }
+    }
+}
+
+// START OF COMMENTS CAROUSEL SECTION!!
+
+.stories_section {
+    padding: 5rem 0;
+    text-align: center;
+    background-color: $light-green; 
+    position: relative;
+    
+    @include bp(mobile) { 
+        padding: 4rem 0; 
+    }
+
+    h2 {
+        font-family: $font-heading;
+        color: $dark-green;
+        font-size: 3.2rem;
+        margin: 0 0 3rem 0;
+
+        @include bp(tablet) { font-size: 2.8rem; }
+        @include bp(mobile) { font-size: 2.2rem; }
+    }
+
+    .stories_slider {
+        display: flex; 
+        overflow-x: auto; 
+        scroll-snap-type: x mandatory; 
+        scroll-behavior: smooth; 
+        
+        anchor-name: --stories_slider; 
+        scroll-marker-group: after;
+        
+        margin: 3em auto; 
+        max-width: 1200px; 
+        gap: 1.5rem; 
+
+        padding: 0 5rem 4rem 5rem; 
+
+        @include bp(tablet) { 
+            padding: 0 4rem 3rem 4rem; 
+        }
+        @include bp(mobile) { 
+            Padding: 0 3.5rem 3rem 3.5rem; 
+        }
+
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        // style of the slides
+        &__slide {
+            flex: 0 0 calc(33.333% - 1rem);
+            height: auto;
+            scroll-snap-align: center; 
+            
+            display: flex;
+            flex-direction: column;
+            background-color: #F4EAE1; 
+            border-radius: 15px; 
+            padding: 2rem;
+            box-sizing: border-box;
+            text-align: left;
+            
+            &:first-child { 
+                margin-left: auto; 
+            }
+            &:last-child { 
+                margin-right: auto; 
+            }
+
+            @include bp(tablet) { 
+                flex: 0 0 100%; 
+            }
+            @include bp(mobile) { 
+                flex: 0 0 100%; 
+            }
+
+            // the inside review content
+            .review_header {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 1.5rem;
+
+                img {
+                    width: 60px; 
+                    height: 60px; 
+                    border-radius: 50%; 
+                    object-fit: cover;
+                    @include bp(mobile){
+                        width: 45px;
+                        height: 45px;
+                    }
+                }
+
+                .review_card {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.2rem;
+
+                    h4 {
+                        font-family: $font-main;
+                        color: $dark-green;
+                        font-size: 1.2rem;
+                        margin: 0;
+                        font-weight: bold;
+                        
+                        @include bp(mobile){ font-size: 1rem; }
+                    }
+
+                    .stars {
+                        color: #C19A6B; 
+                        font-size: 1.1rem;
+                        letter-spacing: 2px;
+                        
+                        @include bp(mobile){ font-size: 0.9rem; }
+                    }
+                }
+            }
+
+            p {
+                font-family: $font-main;
+                color: #673C10;
+                font-size: 1.1rem;
+                line-height: 1.5;
+                margin: 0;
+
+                @include bp(mobile){ font-size: 0.85rem; }
+            }
+        }
+    }
+}
+
+
+// the general group of dots
+.stories_slider::scroll-marker-group {
+    display: flex;
+    justify-content: center;
+    gap: 0.6em;
+    position: static;
+    margin-top: -2rem;
+    z-index: 10;
+
+    @include bp(desktop) {
+        display: flex;
+        gap: 1.2em;
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+    }
+}
+
+// carousel dots
+.stories_slider__slide::scroll-marker {
+    content: '';
+    height: 0.5em;
+    width: 0.5em;
+    background-color: gray;
+    border-radius: 50%; 
+    cursor: pointer;
+    opacity: 0.4;
+    transition: all 0.3s ease;
+
+    @include bp(desktop) {
+        content: none; 
+    }
+}
+
+// dots exists in reduced amount for the 1st 4th and 7th cards
+@include bp(desktop) {
+    .stories_slider__slide:nth-child(3n + 1)::scroll-marker {
+        content: ''; 
+        height: .7em;
+        width: .7em;
+    }
+}
+
+// The active dot in the carousel
+.stories_slider__slide::scroll-marker:target-current {
+    opacity: 1;
+    background-color: $caramel;
+    transform: scale(1.2); 
+}
+
+// The active dot in the carousel
+.stories_slider__slide::scroll-marker:target-current {
+    opacity: 1;
+    background-color: $caramel;
+    transform: scale(1.2); 
+}
+
+// right button in the carousel
+.stories_slider::scroll-button(right) {
+    content: ' ';
+    border: none;
+    background-color: rgba(0, 0, 0, 50%); 
+    font-size: 3rem;
+    color: white;
+    height: 2.3em;
+    width: 2.3em;
+    border-radius: 50%; 
+    padding-bottom: .1em;
+    cursor: pointer;
+    
+    background-image: url('/Sources/right_arrow.png'); 
+    background-position: center;
+    background-repeat: no-repeat;    
+    background-size: 40%; 
+
+    position: absolute; 
+    position-anchor: --stories_slider;
+    position-area: center right;
+    
+    margin-right: 0.5rem; 
+
+    @include bp(tablet) {
+        height: 1.5em;
+        width: 1.5em;
+        margin-right: 0.5rem; 
+    }
+
+    @include bp(mobile) {
+        height: 1.2em; 
+        width: 1.2em;
+        margin-right: 0.2rem; 
+    }
+}
+
+// Left button of the carousel
+.stories_slider::scroll-button(left) {
+    content: '';
+    border: none;
+    background-color: rgba(0, 0, 0, 50%); 
+    font-size: 3rem;
+    color: white;
+    height: 2.3em;
+    width: 2.3em;
+    border-radius: 50%; 
+    padding-bottom: .1em;
+    cursor: pointer;
+
+    background-image: url('/Sources/left_arrow.png'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40%; 
+
+    position: absolute;
+    position-anchor: --stories_slider;
+    position-area: center left;
+    
+    margin-left: 0.5rem; 
+
+    @include bp(tablet) {
+        height: 1.5em;
+        width: 1.5em;
+        margin-left: 0.5rem; 
+    }
+
+    @include bp(mobile) {
+        height: 1.2em;
+        width: 1.2em;
+        margin-left: 0.2rem; 
+    }
+}
+
+// END OF COMMENTS SECTION!!!
+
+// START OF FAQ SECTION
+
+.FAQ {
+    align-items: center; 
+    grid-template-columns: 1fr 1.2fr;
+    margin-top: -3rem;
+    padding: 5rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 4rem;
+
+
+    @include bp(mobile) {
+        grid-template-columns: 1fr; 
+        padding: 3rem 1.5rem;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .FAQ-Design {
+        display: flex;
+        flex-direction: column;
+
+        @include bp(mobile) {
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: $font-heading;
+            color: $dark-green;
+            font-size: 3.5rem;
+            margin: 0 0 1rem 0;
+            
+            @include bp(mobile) {
+                font-size: 2.5rem;
+            }
+        }
+        
+        p {
+            font-family: $font-main;
+            font-size: 1.1rem;
+            color: black;
+            line-height: 1.5;
+            margin: 0 0 2rem 0;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 20px;
+            object-fit: cover;
+            aspect-ratio: 1 / 1.2; 
+
+            @include bp(tablet){
+                aspect-ratio: 1/1;
+            }
+            @include bp(mobile) {
+                aspect-ratio: 16 / 9; 
+                max-width: 100%;
+            }
+        }
+    }
+
+    // Accordion Section
+    .FAQ_Questions {
+        margin-top: 16rem;
+        display: flex;
+        flex-direction: column;
+        
+        @include bp(mobile) {
+            margin-top: 1rem; 
+        }
+
+        .faq_content {
+            border: 1px dashed gray;
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+            background-color: transparent;
+
+            .accordion {
+                background: none;
+                border: none;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                padding: 0;
+                
+                font-family: $font-main;
+                font-size: 1rem;
+                font-weight: bold;
+                color: black;
+                cursor: pointer;
+                
+                .expander {
+                    color: #5A826F; 
+                    transition: transform 0.3s ease;
+                }
+
+                //changes direction of expander buttons
+                .expander.down {
+                    transform: rotate(0deg);
+                }
+                .expander.up {
+                    transform: rotate(90deg);
+                }
+            }
+
+            .faq_answer {
+                display: none; 
+
+                p {
+                    font-family: $font-main;
+                    color: #673C10;
+                    margin-top: 1rem;
+                    margin-bottom: 0;
+                    line-height: 1.5;
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
+
+//END OF FAQ
+
+//START OF FOOTER SECTION
+
+.footer {
+    background-color: $dark-green; 
+    padding: 5rem 3rem 3rem 3rem;
+    
+    @include bp(mobile) {
+        padding: 4rem 1.5rem 2rem 1.5rem;
+    }
+
+    .footer_container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+.footer_links {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr; 
+        gap: 2rem;
+        margin-bottom: 5rem;
+        white-space: normal;
+        @include bp(tablet) {
+            grid-template-columns: 1fr 1fr 1fr 1fr; 
+            gap: 4.5rem;
+            margin-bottom: 4rem;
+        }
+        @include bp(mobile) {
+            grid-template-columns: 1fr 1fr 1fr 1fr; 
+            gap: 1rem;
+            word-break: break-word; //breaks the words
+        }
+    }
+
+    .footer_column {
+        
+        h3 {
+            font-family: $font-main; 
+            color: #E7D1AD; 
+            font-size: 1.4rem;
+            margin: 0 0 1.5rem 0;
+            font-weight: bold;
+
+            @include bp(mobile) {
+                font-size: 1rem;
+            }
+        }
+
+        p {
+            font-family: $font-main;
+            color: white;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0 0 1rem 0;
+
+            strong {
+                font-weight: bold;
+            }
+
+            @include bp(mobile) {
+                font-size: .9rem;
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin-bottom: 1rem;
+
+                a {
+                    text-decoration: none; 
+                    font-family: $font-main;
+                    color: white;
+                    
+                    font-size: 1rem;
+                    transition: opacity 0.2s ease;
+
+                    
+            @include bp(mobile) {
+                font-size: .9rem;
+            }
+
+                    &:hover {
+                        opacity: 0.7; 
+                    }
+                }
+            }
+        }
+    }
+
+    .footer_logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        img {
+            width: 160px;
+            height: auto;
+            border-radius: 50%; 
+        }
+    }
+}
+
+//SCROLL BUTTON UP
+ 
+.back_top {
+position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000; 
+    width: 70px;
+    height: 70px;
+    font-size: 40px;
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: $dark-green; 
+    color: white; 
+    font-weight: bold;
+    text-decoration: none;
+
+    @include bp(mobile) {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        font-size: 0.9rem;
+        width: 50px;
+        height: 50px;
+    }
+}
+
