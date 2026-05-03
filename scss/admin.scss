@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+//fonts
+$font-main: 'Lato', sans-serif;
+$font-heading: 'Playfair Display', serif;
+
+//Colour Palettes 
+$cream: #F8F5EF;
+$dark-caramel: #F9E8D6;
+$light-green: #CADFD5; 
+$dark-green: #508167;  
+$caramel: #B58859;
+
+//body styling
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: $font-main;
+    background-color: $cream;
+}
+
+//header styling
+h1 {
+    font-family: $font-heading;
+    color: $dark-green;
+    background-color: $dark-caramel; 
+    margin-bottom: 2rem;
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 3rem; 
+}
+
+//admin form stuling
+.AdminForm {
+    display: flex;
+    flex-direction: column;
+    width: 40rem;
+    background-color: white; 
+    padding: 3rem;
+    border-radius: 1rem;
+   
+
+
+    //styling for all the boxes inside the form
+    .input-items {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem; 
+//style for the input fields
+        input {
+            padding: 1rem; 
+            font-size: 1rem; 
+            font-family: $font-main;
+            border: 2.5px solid $light-green;
+            border-radius: 0.5rem;
+            box-sizing: border-box; 
+            background-color: white;
+            color: gray;
+        }
+        //style for the dropdown fields
+        select {
+            padding: 1rem; 
+            font-size: 1rem; 
+            font-family: $font-main;
+            border: 2.5px solid $light-green;
+            border-radius: 0.5rem;
+            box-sizing: border-box; 
+            background-color: white;
+            color: gray;
+
+        }
+        //style for the description of the product
+        textarea {
+            padding: 1rem; 
+            font-size: 1rem; 
+            font-family: $font-main;
+            border: 2.5px solid $light-green;
+            border-radius: 0.5rem;
+            box-sizing: border-box; 
+            background-color: white;
+            color: gray;
+            min-height: 11rem; 
+        }
+        // h3 styling for the admin
+        h3{
+            font-family: $font-main;
+            font-weight: bold;
+            color: $dark-green;
+            font-size: 1.18rem;
+        }
+    }
+
+//button style for admin
+    button {
+        border: none;
+
+        background-color: $caramel; 
+        color: white;
+        font-family: $font-main;
+        font-weight: bold;
+        font-size: 1.5rem;
+        padding: 1rem 2.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 1.5rem;
+    }
+}

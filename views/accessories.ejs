@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessories</title>
+</head>
+<body>
+    <!--product grid -->
+<div class="product-grid">
+        
+        <!-- loops through each product from MongoDB -->
+        <% products.forEach(product => { %>
+            <!--this creates a dynamic link which is automatically connected to the product id page-->
+             <a href="/product/<%= product._id %>">
+                <div class="product-card">
+                    
+                    <img src="<%= product.images[0] %>" alt="<%= product.name %>">
+                    
+                    <h2><%= product.name %></h2>
+                    <p class="price"><%= product.price %> AED</p>
+                    
+                </div>
+            </a>
+            <% }) %>
+    </div>
+</body>
+</html>

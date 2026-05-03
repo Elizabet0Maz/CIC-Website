@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<!--displays product name-->
+    <h1><%= product.name %></h1>
+
+    <!-- images of the product, besides that added a onerror handler to not display broken images-->
+    <!--reference from: https://stackoverflow.com/questions/3675073/how-do-i-hide-broken-images-in-javascript/3675104#3675104-->
+<div class="product-gallery">
+    <!--I also added optional chaining in order to avoid website crashing: https://stackoverflow.com/a/75487575-->
+    <img class="gallery-img" src="<%= product?.images?.[0]%>" alt="<%= product.name %>" onerror="this.style.display='none';">
+    <img class="gallery-img" src="<%= product?.images?.[1]%>" alt="<%= product.name %> View 2" onerror="this.style.display='none';">
+    <img class="gallery-img" src="<%= product?.images?.[2]%>" alt="<%= product.name %> View 3" onerror="this.style.display='none';">
+    <img class="gallery-img" src="<%= product?.images?.[3]%>" alt="<%= product.name %> View 4" onerror="this.style.display='none';">
+</div>
+<!-- product description and the price-->
+<p class="description"><%= product.description %></p>
+<p class="price">Price: <%= product.price %> AED</p>
+
+</body>
+
+</html>

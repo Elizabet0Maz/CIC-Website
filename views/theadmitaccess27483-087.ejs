@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aladdin Gen Trading Admin Pannel</title>
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+     <h1>Add New Item</h1>
+    
+     <!--Form sends data to /admin form using post method-->
+    <form action="/theadmitaccess27483-087" method="POST" class="AdminForm">
+        
+        <div class="input-items">
+            <h3>Product Name:</h3>
+            <input name="name" placeholder="Product Name" required>
+        </div>
+
+        <!--the drop down menus inspired from: https://stackoverflow.com/questions/42548641/how-to-get-value-selected-in-dropdown-menu-from-ejs-template-to-server-side-node-->
+        <div class="input-items">
+            <h3>Product Category:</h3>
+            <select name="category" required>
+                <option value="" disabled selected>Pick a Category</option>
+                <option value="Accessories">Accessories</option>
+                <option value="Fragrance">Fragrance</option>
+                <option value="Cosmetics">Cosmetics</option>
+                <option value="Handmade">Handmade</option>
+            </select>
+        </div>
+            
+        <div class="input-items">
+            <h3>Product Sub-Category:</h3>
+            <select name="subCategory" required>
+                <option value="" disabled selected>Pick a Subcategory</option>
+                <optgroup label="Accessories">
+                    <option value="Bracelets">Bracelets</option>
+                    <option value="Necklaces">Necklaces</option>
+                </optgroup>
+                <optgroup label="Fragrances">
+                    <option value="Perfumes">Perfumes</option>
+                    <option value="Essential Oils">Essential Oils</option>
+                    <option value="Incense">Incense</option>
+                </optgroup>
+                <optgroup label="Cosmetics">
+                    <option value="Skincare">Skincare</option>
+                    <option value="Bath & Body">Bath & Body</option>
+                </optgroup>
+                <optgroup label="Handmade">
+                    <option value="Herbal Teas">Herbal Teas</option>
+                    <option value="Organic Soaps">Organic Soaps</option>
+                </optgroup>
+            </select>
+        </div>
+        
+        <div class="input-items">
+            <h3>Product Price:</h3>
+            <input name="price" placeholder="Price">
+        </div>
+        
+        <!-- the img posting -->
+        <div class="input-items">
+            <h3>Main Display Image:</h3>
+            <input name="image1" placeholder="Paste Main Image URL here">
+        </div>
+        <div class="input-items">
+            <h3>Image 2:</h3>
+            <input name="image2" placeholder="Paste Image 2 URL">
+        </div>
+        
+        <div class="input-items">
+            <h3>Image 3:</h3>
+            <input name="image3" placeholder="Paste Image 3 URL">
+        </div>
+        
+        <div class="input-items">
+            <h3>Image 4:</h3>
+            <input name="image4" placeholder="Paste Image 4 URL">
+        </div>
+       <!--description of the product field--> 
+        <div class="input-items">
+            <h3>Product Description:</h3>
+            <textarea name="description" placeholder="Write the product description here..."></textarea>
+        </div>
+
+        <!--submit the form button-->
+        <button type="submit">Upload to the Website</button>
+    </form>
+</body>
+</html>

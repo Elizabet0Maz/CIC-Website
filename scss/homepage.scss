@@ -413,8 +413,8 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    //margin-right: auto
-    //margin-left: 7rem
+    //margin-right: auto;
+    //margin-left: 7rem;
     justify-self: end; 
 
     @include bp(mobile) {
@@ -430,7 +430,8 @@ body {
             height: 25px;
         }
     }
-
+//reference to this part of the code https://codepen.io/barteciccio/pen/ExqwOVJ
+//helps to remove the ugly google widget
     #google_translate_element select {
         font-size: 1rem;
         background: none;

@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Lato", sans-serif;
+  background-color: #F8F5EF;
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  color: #508167;
+  background-color: #F9E8D6;
+  margin-bottom: 2rem;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 3rem;
+}
+
+.AdminForm {
+  display: flex;
+  flex-direction: column;
+  width: 40rem;
+  background-color: white;
+  padding: 3rem;
+  border-radius: 1rem;
+}
+.AdminForm .input-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.AdminForm .input-items input {
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: "Lato", sans-serif;
+  border: 2.5px solid #CADFD5;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  background-color: white;
+  color: gray;
+}
+.AdminForm .input-items select {
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: "Lato", sans-serif;
+  border: 2.5px solid #CADFD5;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  background-color: white;
+  color: gray;
+}
+.AdminForm .input-items textarea {
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: "Lato", sans-serif;
+  border: 2.5px solid #CADFD5;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  background-color: white;
+  color: gray;
+  min-height: 11rem;
+}
+.AdminForm .input-items h3 {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  color: #508167;
+  font-size: 1.18rem;
+}
+.AdminForm button {
+  border: none;
+  background-color: #B58859;
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 1rem 2.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1.5rem;
+}
