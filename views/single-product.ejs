@@ -3,26 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><%= product.name %></title>
+    <link rel="stylesheet" href="/css/single_product.css">
 </head>
 
 <body>
-<!--displays product name-->
-    <h1><%= product.name %></h1>
 
+<header class="Nav-Bar">
+    <!--OPEN BUTTON HOME-->
+    <button id="btnOpen" class="Nav-Bar__open" aria-expanded="false" aria-labelledby="Nav-Label">
+        <img src="/Sources/Hamburger.png" alt="Menu" width="42" height="42">
+    </button>
+
+    <!--CLOSE BUTTON HOME-->
+    <button class="Home-Btn" id="btnClose" aria-label="Close">
+        <img src="/Sources/Home.png" alt="Home" width="35" height="35">
+    </button>
+
+    <img src="/Sources/Logo.png" alt="Aladdin Logo" class="logo">
+
+
+    <nav class="Nav-Bar__nav">
+        <span id="Nav-Label" hidden>Navigation</span>
+
+        <div class="Nav-Bar__menu" role="dialog" aria-labelledby="Nav-Label">
+            <ul class="Nav-Bar__links">
+                
+                <li class="Nav-Bar__item item-desktop-home">
+                    <a href="/" class="Nav-Bar__link">
+                        <img src="/Sources/Home.png" alt="Home" width="40" height="40">
+                    </a>
+                </li>
+
+                <li class="Nav-Bar__item item-green dropdown">
+                    <a href="#" class="Nav-Bar__link">Accessories <span class="Nav-Bar__arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/shop/Accessories/Earrings">Earrings</a></li>
+                        <li><a href="/shop/Accessories/Necklaces">Necklaces</a></li>
+                    </ul>
+                </li>
+
+                <li class="Nav-Bar__item item-cream dropdown">
+                    <a href="#" class="Nav-Bar__link">Fragrances <span class="Nav-Bar__arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/shop/Fragrances/Perfumes">Perfumes</a></li>
+                        <li><a href="/shop/Fragrances/Perfumed-Oils">Perfumed Oils</a></li>
+                        <li><a href="/shop/Fragrances/Home-Fragrances">Home Fragrance</a></li>
+                        <li><a href="/shop/Fragrances/Deodarants">Deodarants</a></li>
+                    </ul>
+                </li>
+
+                <li class="Nav-Bar__item item-green dropdown">
+                    <a href="#" class="Nav-Bar__link">Cosmetics <span class="Nav-Bar__arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/shop/Fragrances/Face-Care">Face Care</a></li>
+                        <li><a href="/shop/Fragrances/Body-Care">Care Body</a></li>
+                    </ul>
+                </li>
+
+                <li class="Nav-Bar__item item-cream dropdown">
+                    <a href="#" class="Nav-Bar__link">Handmade <span class="Nav-Bar__arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/shop/Handmade/Soaps">Soaps</a></li>
+                    </ul>
+                </li>
+
+                <li class="Nav-Bar__item item-about"><a href="/aboutus" class="Nav-Bar__link">ABOUT US</a></li>
+                <li class="Nav-Bar__item item-contact"><a href="/contactus" class="Nav-Bar__link">CONTACT US</a></li>
+            </ul>
+        </div>
+
+    <div class="Nav-Bar__extraBtns">
+        <a href="/aboutus" class="btn-about">ABOUT US</a>
+        <a href="/contactus" class="btn-contact">CONTACT US</a>
+    </div>
+  </nav>  
+    <div class="nav-language">
+        <img src="/Sources/Globe.png" alt="Select Language" class="globe-icon">
+        <div id="google_translate_element"></div>
+    </div>
+
+</header>
+
+<a href="index.html" class="return-link">RETURN TO SHOP</a>
+
+<div class = "SP-container">
     <!-- images of the product, besides that added a onerror handler to not display broken images-->
     <!--reference from: https://stackoverflow.com/questions/3675073/how-do-i-hide-broken-images-in-javascript/3675104#3675104-->
-<div class="product-gallery">
     <!--I also added optional chaining in order to avoid website crashing: https://stackoverflow.com/a/75487575-->
-    <img class="gallery-img" src="<%= product?.images?.[0]%>" alt="<%= product.name %>" onerror="this.style.display='none';">
-    <img class="gallery-img" src="<%= product?.images?.[1]%>" alt="<%= product.name %> View 2" onerror="this.style.display='none';">
-    <img class="gallery-img" src="<%= product?.images?.[2]%>" alt="<%= product.name %> View 3" onerror="this.style.display='none';">
-    <img class="gallery-img" src="<%= product?.images?.[3]%>" alt="<%= product.name %> View 4" onerror="this.style.display='none';">
+<div class="product-section">
+        <!--<div class="product-carousel">
+            <div class="product-carousel__slide slide_1">
+                <img class="carousel__img" src="<%= product?.images?.[0] %>" alt="View 1" onerror="this.style.display='none';">
+            </div>
+            <div class="product-carousel__slide slide_2">
+                <img class="carousel__img" src="<%= product?.images?.[1] %>" alt="View 2" onerror="this.style.display='none';">
+            </div>
+            <div class="product-carousel__slide slide_3">
+                <img class="carousel__img" src="<%= product?.images?.[2] %>" alt="View 3" onerror="this.style.display='none';">
+            </div>
+            <div class="product-carousel__slide slide_4">
+                <img class="carousel__img" src="<%= product?.images?.[3] %>" alt="View 4" onerror="this.style.display='none';">
+            </div>
+        </div>-->
+<!--chancged this code to act more dynamically for the image carousel using a loop instead so not it is based on the amount of the images-->
+    <div class="product-carousel">
+        <% product.images.forEach((image, index) => { %>
+            <div class="product-carousel__slide slide_<%= index + 1 %>">
+                <img class="carousel__img" src="<%= image %>" alt="Images of the single product" onerror="this.style.display='none';">
+            </div>
+        <% }) %>
+    </div>
 </div>
-<!-- product description and the price-->
-<p class="description"><%= product.description %></p>
-<p class="price">Price: <%= product.price %> AED</p>
+    
+    <div class="details-section">
+        <h1 class="product-title"><%= product.name %></h1>
+        <p class="product-description"><%= product.description %></p>
+        
+        <!-- Green line -->
+        <div class="separator-line"></div>
+        
+        <div class="sp-buttons">
+            <a href="https://wa.me/+971562775717" class="whatsapp-btn">ASK ON WHATSAPP</a>
+            <a href="/shop/<%= product.category %>" class="view-collections-link">VIEW ALL COLLECTIONS</a> 
+        </div>
+    </div>
+</div>
 
+
+
+<!--FOOTER SECTION-->
+<footer class="footer">
+    <div class="footer_container">
+        
+        <div class="footer_links">
+            
+            <div class="footer_column">
+                <h3>Find Us</h3>
+                <p><strong>Address:</strong> Al Zahir Street - Al Rumailah - Ajman</p>
+                <p><strong>Telephone:</strong> +971 056 277 5717</p>
+            </div>
+
+            <div class="footer_column">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="/shop/Accessories">Accessories</a></li>
+                    <li><a href="/shop/Fragrances">Fragrance</a></li>
+                    <li><a href="/shop/Cosmetics">Cosmetics</a></li>
+                    <li><a href="/shop/Handmade">Handmade</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_column">
+                <h3>Help</h3>
+                <ul>
+                    <li><a href="/contactus">Contact Us</a></li>
+                    <li><a href="/aboutus">About Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_column">
+                <h3>Socials</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/Aladdingifts1/ ">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/aladdingifts1?igsh=cXBhaG5xNjh3amJq&utm_source=qr">Instagram</a></li>
+                </ul>
+            </div>
+            
+        </div>
+
+        <div class="footer_logo">
+            <img src="/Sources/Logo_Footer.png" alt="Aladdin Logo Footer">
+        </div>
+
+    </div>
+</footer>
+<!--translator script-->
+<script src="/JavaScript/scripts.js"></script>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,ar,ru'
+  }, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
-
 </html>

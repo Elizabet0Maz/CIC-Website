@@ -970,7 +970,6 @@ div#goog-gt- {
 .shop_category .category_card {
   border-radius: 20px;
   overflow: hidden;
-  cursor: pointer;
   flex-direction: column;
   display: block;
   text-align: left;
@@ -1130,7 +1129,7 @@ div#goog-gt- {
   }
 }
 .heritage_section .heritage_card .heritage_content p {
-  color: #333;
+  color: gray;
   line-height: 1.4;
   margin: 0 0 1.5rem 0;
   font-family: "Lato", sans-serif;
@@ -1388,7 +1387,7 @@ div#goog-gt- {
   display: none;
 }
 .stories_section .stories_slider__slide {
-  flex: 0 0 calc(33.333% - 1rem);
+  flex: 0 0 calc(33% - 1rem);
   height: auto;
   scroll-snap-align: center;
   display: flex;
@@ -1693,7 +1692,6 @@ div#goog-gt- {
   font-size: 1rem;
   font-weight: bold;
   color: black;
-  cursor: pointer;
 }
 .FAQ .FAQ_Questions .faq_content .accordion .expander {
   color: #5A826F;

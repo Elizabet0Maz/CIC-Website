@@ -1,0 +1,1109 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+//fonts
+$font-main: 'Lato', sans-serif;
+$font-heading: 'Playfair Display', serif;
+
+//Colour Palettes 
+$cream: #F8F5EF;
+$dark-caramel: #F9E8D6;
+$light-green: #CADFD5; 
+$dark-green: #508167;  
+$caramel: #B58859;
+
+body {
+    margin: 0;
+    font-family: $font-main;
+    background-color: $cream;
+}
+
+// Breakpoints
+@mixin bp($point) {
+    @if $point == desktop {
+        @media (min-width: 1025px) { @content; } 
+    } @else if $point == tablet {
+        @media (min-width: 720px) and (max-width: 1024px) { @content; } 
+    } @else if $point == mobile {
+        @media (max-width: 719px) { @content; }
+    } 
+}
+
+
+
+
+// FOR MY TEAM, THIS PART IS THE HEADER SCROLL DOWN UNTIL THE END TO FIND SIMILAR TEXT. TO KNOW WHERE IT ENDS!!!!
+// general Nav Bar style
+.Nav-Bar {
+    display: flex;
+    align-items: center;
+
+    position: relative; 
+    justify-content: center;
+    background-color: $cream; 
+    padding: 1em;
+
+    @include bp(desktop) {
+        padding: 1rem 3%; 
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        align-items: center;
+        justify-content: space-between; 
+    }
+
+    // Logo styling
+    .logo {
+        width: 60px; 
+        height: 60px;
+
+        @include bp(desktop) {
+            width: 90px; 
+            height: 90px;
+            margin-right: auto;
+        }
+
+        @include bp(tablet) {
+            margin-left: 4.5rem;
+            margin-right: auto;
+        }
+        @include bp(mobile){
+            margin-right: auto;
+            margin-left: 4rem;
+        }
+    }
+
+    &__nav {
+        @include bp(desktop) {
+            display: flex;
+            align-items: center;
+            gap: 3rem; 
+            justify-content: center; 
+            margin-left: -2rem;
+        }
+    }
+
+    // open and close menu buttons using aria-expanded
+    &__open {
+        position: absolute;
+        left: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        padding: 0;
+
+        @include bp(desktop) { 
+            display: none; 
+        }
+
+        &[aria-expanded='true'] {
+            display: none;
+            ~ nav .Nav-Bar__menu { 
+                transform: translateX(0); 
+            }
+            ~ .Home-Btn { 
+                display: block; 
+            }
+        }
+    }
+
+    .Home-Btn {
+        position: absolute;
+        left: 1.5rem; 
+        background: none; 
+        border: none;     
+        padding: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: none; 
+    }
+
+
+    //menu styling
+    &__menu {
+        @include bp(mobile) {
+            position: absolute; 
+            top: 100%;          
+            left: 0;            
+            width: 100%;        
+            height: 100vh;      
+            padding: 0; 
+            display: flex;
+            background-color: $cream; 
+            z-index: 100;
+            transition: transform 0.5s ease-in-out;
+            transform: translateX(-100vw); 
+        }
+
+        @include bp(tablet) {
+            position: absolute; 
+            top: 100%;          
+            left: 0;            
+            width: 100%;        
+            height: 100vh;      
+            padding: 0; 
+            display: flex;
+            background-color: $cream; 
+            z-index: 100;
+            transition: transform 0.5s ease-in-out;
+            transform: translateX(-100vw); 
+        }
+    }
+
+//style for categories and links
+    &__links {
+        //styles for ul
+        display: flex;
+        margin: 0;
+        padding: 0;
+        width: 100%; 
+
+        @include bp(mobile) { 
+            flex-direction: column; 
+        }
+        @include bp(tablet) {
+             flex-direction: column; 
+            }
+
+        @include bp(desktop) {
+            justify-content: center;
+            align-items: center;
+            font-size: 1.15rem;
+            gap: 1rem;
+            //margin-left: 10rem;
+        }
+
+        //styles for li
+        li {
+            list-style-type: none;
+
+            //wrote code this way to keep it more readable
+            @include bp(mobile) {
+                width: 100%; 
+                &.item-green { background-color: $light-green; }
+                &.item-cream { background-color: $cream; }
+                &.item-about { background-color: $dark-green; a { color: white; } }
+                &.item-contact { background-color: $caramel; a { color: white; } }
+            }
+
+            @include bp(tablet) {
+                width: 100%; 
+                &.item-green { background-color: $light-green; }
+                &.item-cream { background-color: $cream; }
+                &.item-about { background-color: $dark-green; a { color: white; } }
+                &.item-contact { background-color: $caramel; a { color: white; } }
+            }
+
+            //hides extra buttons contact us & about us
+            &.item-about,&.item-contact {
+                @include bp(tablet) { 
+                    display: none; 
+                }
+                @include bp(desktop) { 
+                    display: none; 
+                }
+            }
+
+            // styled links
+            a {
+                display: flex;
+                align-items: center;
+                text-decoration: none; 
+                color: $dark-green;
+                font-weight: bold;
+                white-space: nowrap;
+
+                @include bp(mobile) {
+                    padding: 2rem 1.5rem; 
+                    font-size: 1.25rem;
+                    justify-content: space-between; 
+                }
+
+                @include bp(tablet) {
+                    padding: 2rem 1.5rem; 
+                    font-size: 1.25rem;
+                    justify-content: space-between;
+                }
+
+                @include bp(desktop) {
+                    padding: 0rem;
+                    font-size: 1rem;
+                    justify-content: center;
+                    gap: 0.5rem;
+                }
+            }
+        }
+    }
+
+    //Tablet & desktop btns 
+    &__extraBtns {
+        display: none;
+        
+        a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .btn-about { 
+            background-color: $light-green; 
+            color: black; 
+        }
+        .btn-contact { 
+            background-color: $caramel; 
+            color: white; 
+        }
+
+        @include bp(tablet) {
+            display: flex;
+            flex-direction: row; 
+            position: absolute;
+            right: 21.5%; 
+            top: 50%;
+            transform: translateY(-50%);
+            gap: 1rem; 
+            a { 
+                font-size: 1rem;
+             } 
+        }
+        
+        @include bp(desktop) {
+            display: flex;
+            //position: absolute;
+            //right: 12em; 
+            margin-left: auto;
+            //top: 50%;
+            transform: translateY(-50%);
+            gap: 1rem; 
+            margin-bottom: -2rem;
+        }
+    }
+
+    // dropdown menu design
+    .dropdown {
+        position: relative; 
+
+        .dropdown-menu {
+            display: none; 
+            padding: 0;
+            margin: 0;
+            
+            li { list-style: none; }
+            a { display: block; text-decoration: none; }
+
+            @include bp(mobile) {
+
+                //keeping the dark and transparent to make subcategories box look good
+                background-color: rgba(0, 0, 0, 0.04);
+                a {
+                    padding: 1rem 1.5rem 1rem 3rem; 
+                    font-size: 1.1rem;
+                    color: $dark-green;
+                    font-weight: normal; 
+                    border-left: 4px solid $dark-green; 
+                }
+            }
+
+            @include bp(tablet) {
+                background-color: rgba(0, 0, 0, 0.04);
+                a {
+                    padding: 1rem 1.5rem 1rem 3rem; 
+                    font-size: 1.1rem;
+                    color: $dark-green;
+                    font-weight: normal; 
+                    border-left: 4px solid $dark-green; 
+                }
+            }
+
+            @include bp(desktop) {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: white;
+                min-width: 200px;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+                z-index: 200;
+                border-radius: 4px;
+                a {
+                    padding: 1rem 1.5rem;
+                    color: $dark-green;
+                    font-weight: bold;
+                    font-size: 0.95rem;
+                    &:hover { 
+                        background-color: $light-green; 
+                    }
+                }
+            }
+        }
+
+        //Reacts in order to display drop down menu 
+        //(&focus-within makes sure that the elements remain clicked on so the hamburger menu won't collapse..)
+        &:hover, &:active, &:focus-within {
+            .dropdown-menu { 
+                display: block; 
+            }
+
+            @include bp(mobile) { 
+                .Nav-Bar__arrow { 
+                    transform: rotate(0deg); 
+                } }
+            @include bp(tablet) { 
+                .Nav-Bar__arrow { 
+                    transform: rotate(0deg); 
+                } }
+            @include bp(desktop) { 
+                .Nav-Bar__arrow { 
+                    transform: rotate(180deg); 
+                } }
+        }
+    }
+
+    //arrow appearance & behaviour..
+    &__arrow {
+        display: inline-block;
+        transition: transform 0.3s ease;
+
+        @include bp(mobile) {
+            margin-top: 3px;
+            font-size: 3rem;
+            transform: rotate(-90deg); 
+        }
+
+        @include bp(tablet) {
+            margin-top: 3px;
+            font-size: 3rem;
+            transform: rotate(-90deg); 
+        }
+
+        @include bp(desktop) {
+            font-size: 0.9rem;
+            transform: rotate(0deg); 
+            padding: 1em;
+        }
+    }
+
+    // home button for desktop exclusively
+    &__item.item-desktop-home {
+        @include bp(mobile) { 
+            display: none; 
+        }
+        @include bp(tablet){ 
+            display: none; 
+        }
+        
+        @include bp(desktop) {
+            display: flex;
+            //margin-left: -38rem;
+            padding-right: 1rem;
+            padding-left:2.5rem;
+            
+            img {
+                transition: transform 0.2s ease;
+                &:hover { transform: scale(1.1); }
+            }
+        }
+    }
+//translate section styling
+.nav-language {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    //margin-right: auto;
+    //margin-left: 7rem;
+    justify-self: end; 
+
+    @include bp(mobile) {
+        gap:0;
+    }
+    .globe-icon {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+
+        @include bp(mobile){
+            width: 25px;
+            height: 25px;
+        }
+    }
+//reference to this part of the code https://codepen.io/barteciccio/pen/ExqwOVJ
+//helps to remove the ugly google widget
+    #google_translate_element select {
+        font-size: 1rem;
+        background: none;
+        color: $dark-green;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 12px;
+        font-family: $font-main;
+        outline: none;
+        border: none;
+
+        @include bp(mobile){
+        font-size: .8rem;
+    }
+    }
+}
+}
+body {
+    top: 0 !important;
+}
+
+body > .skiptranslate,
+.goog-logo-link,
+.gskiptranslate,
+.goog-te-gadget span,
+.goog-te-banner-frame,
+#goog-gt-tt, 
+.goog-te-balloon-frame,
+div#goog-gt- {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    color: transparent !important;
+    font-size: 0px !important;
+}
+
+.goog-text-highlight {
+    background: none !important;
+    box-shadow: none !important;
+}
+
+//END OF THE HEADER!!!!!
+
+
+// ABOUT US - HERO STYLING 
+.hero-section.about-hero {
+    position: relative;
+    width: 100%;
+    min-height: 280px; 
+    background-image: url('/imagesAboutContact/aboutuspicture.png'); 
+    background-size: cover;
+    background-position: center 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-sizing: border-box; 
+    overflow: hidden;
+
+    // larger phones
+    @media (min-width: 480px) {
+        min-height: 350px;
+    }
+
+    @include bp(tablet) {
+        min-height: 500px;
+    }
+
+    @include bp(desktop) {
+        min-height: 65vh;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to bottom, 
+            rgba(0,0,0,0) 20%, 
+            rgba(39, 26, 7, 0.95) 100%
+        );
+        z-index: 1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        box-sizing: border-box; 
+        // tight padding for mobile to save space
+        padding: 0 5% 1.2rem 6%; 
+
+        @include bp(tablet) {
+            padding-left: 8%;
+            padding-bottom: 2rem;
+        }
+
+        @include bp(desktop) {
+            padding-left: 10%;
+            padding-bottom: 2.5rem;
+        }
+
+        h1 {
+            font-family: $font-heading;
+            font-weight: 700; 
+            color: #FFFFFF !important;
+            margin: 0 0 0.2rem 0; 
+            font-size: 1.5rem; 
+
+            @include bp(tablet) {
+                font-size: 2.2rem;
+                letter-spacing: 0.5px;
+            }
+
+            @include bp(desktop) {
+                font-size: 2.5rem;
+                line-height: 1.1;
+                letter-spacing: 1px;
+            }
+        }
+
+        p {
+            font-family: $font-main;
+            font-weight: 400; 
+            color: #FFFFFF !important;
+            margin: 0; 
+            padding: 0;
+            font-size: 0.75rem; 
+            line-height: 1.3;
+
+            @include bp(tablet) {
+                font-size: 0.95rem;
+                max-width: 85%;
+                line-height: 1.5;
+            }
+
+            @include bp(desktop) {
+                font-size: 1rem;
+                line-height: 1.6;
+                max-width: 75%;
+                letter-spacing: 0.3px;
+            }
+        }
+    }
+}
+
+
+
+// CURATED JOURNEY STYLING 
+.about-grid-section {
+    padding: 30px 18px; 
+    text-align: center;
+
+    // header styling
+    .grid-title {
+        font-family: $font-heading; 
+        color: $dark-green; 
+        font-weight: 700;
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+        letter-spacing: 0.5px;
+        text-transform: capitalize;
+
+        @include bp(mobile) {
+            font-size: 1.5rem; 
+            margin-bottom: 20px;
+        }
+    }
+
+    // photo grid styling
+    .image-grid {
+        column-count: 2; // forced two-column layout
+        column-gap: 15px; // space between columns
+        max-width: 1000px;
+        margin: 0 auto;
+
+        .grid-item {
+            display: inline-block; // prevents items from splitting across columns
+            width: 100%;
+            margin-bottom: 15px; // vertical gap between images
+
+            img {
+                width: 100%;
+                object-fit: cover;
+                border-radius: 25px; 
+                display: block;
+                height: auto;
+            }
+        }
+
+        // staggered height logic for mobile
+        @include bp(mobile) {
+            column-gap: 12px;
+
+            // targeting top right and bottom left to be taller 
+            .grid-item:nth-child(2) img,
+            .grid-item:nth-child(3) img {
+                height: 240px; 
+            }
+
+            // targeting top left and bottom right to be shorter
+            .grid-item:nth-child(1) img,
+            .grid-item:nth-child(4) img {
+                height: 190px;
+            }
+        }
+    }
+
+    @include bp(tablet) {
+        padding: 60px 40px;
+        
+        .image-grid {
+            column-gap: 25px;
+            .grid-item {
+                margin-bottom: 25px;
+                img { height: 300px; }
+            }
+        }
+    }
+}
+
+
+// HERITAGE AND HEART STYLING
+.heritage-heart-section {
+    padding: 40px 8%;
+    text-align: center;
+
+    @include bp(mobile) {
+        padding: 15px 20px 30px 20px; 
+    }
+
+    .section-title {
+        font-family: $font-heading;
+        color: $dark-green; 
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin-top: 0; 
+        margin-bottom: 20px;
+        letter-spacing: 0.5px;
+
+        @include bp(mobile) {
+            font-size: 1.25rem; 
+            margin-bottom: 15px;
+        }
+    }
+
+    .text-content p {
+        font-family: $font-main;
+        color: #4a4a4a;
+        line-height: 1.6;
+        margin-bottom: 25px;
+        font-size: 0.95rem;
+        max-width: 700px;
+        margin: 0 auto 25px auto;
+        
+        @include bp(mobile) {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            text-align: justify; 
+            text-justify: inter-word; 
+        }
+    }
+}
+
+
+
+// TRADITIONAL FINDS STYLING
+.traditional-finds-section {
+    padding: 0; 
+    background-color: $cream;
+
+    .traditional-finds__container {
+        background-color: $dark-caramel; 
+        display: flex;
+        flex-direction: row; 
+        align-items: center; 
+        width: 100%; 
+        border-radius: 0; 
+        padding: 25px 12px; 
+        gap: 12px;
+        box-sizing: border-box;
+
+        @include bp(tablet) {
+            padding: 40px 5%;
+            gap: 30px;
+        }
+
+        @include bp(desktop) {
+            max-width: 1150px; 
+            margin: 0 auto;
+            padding: 35px 40px; 
+            border-radius: 20px; 
+            gap: 50px;
+
+            @media (min-width: 1440px) {
+                max-width: 100%; 
+                padding: 40px 8%; 
+                border-radius: 0; 
+                gap: 80px;
+            }
+        }
+    }
+
+    .finds-text-content {
+        flex: 1.2; 
+        min-width: 0; 
+        text-align: left;
+
+        h3 {
+            font-family: $font-heading;
+            color: $dark-green; 
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+
+            @include bp(tablet) {
+                font-size: 1.6rem; 
+                margin-bottom: 12px;
+            }
+
+            @include bp(desktop) {
+                font-size: 1.8rem; 
+                @media (min-width: 1440px) { font-size: 2.2rem; }
+            }
+        }
+
+        p {
+            font-family: $font-main;
+            font-size: 0.75rem;
+            line-height: 1.3;
+            color: #4a4a4a;
+            margin-bottom: 12px;
+
+           
+            @include bp(tablet) {
+                font-size: 0.95rem;
+                line-height: 1.5;
+                margin-bottom: 20px;
+            }
+
+            @include bp(desktop) {
+                font-size: 1rem; 
+                @media (min-width: 1440px) {
+                    font-size: 1.1rem;
+                    max-width: 600px;
+                }
+            }
+        }
+
+        .btn-explore {
+            display: inline-block;
+            background-color: $caramel; 
+            color: #FFFFFF !important;
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 600;
+            white-space: nowrap;
+
+            
+            @include bp(tablet) {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+
+            @include bp(desktop) {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    .finds-image-wrapper {
+        flex: 1; 
+        min-width: 0;
+        
+        img {
+            width: 100%;
+            height: 180px; 
+            object-fit: cover;
+            border-radius: 25px; 
+            display: block;
+
+            @include bp(tablet) {
+                height: 280px;
+            }
+
+            @include bp(desktop) {
+                height: 320px;
+                @media (min-width: 1440px) { height: 380px; }
+            }
+        }
+    }
+}
+
+
+
+// WRAPPER STYLING FOR COMBINING 'HERITAGE & HEART' AND 'CURATED JOURNEY'
+.about-combined-section {
+    background-color: $cream;
+    padding: 20px 0; 
+
+    .main-grid-title {
+        font-family: $font-heading;
+        color: $dark-green;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.8rem; 
+        margin-bottom: 20px;
+
+        @include bp(desktop) {
+            @media (min-width: 1440px) {
+                font-size: 2.8rem; 
+                margin-bottom: 40px;
+            }
+        }
+    }
+}
+
+.about-combined-flex {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px;
+
+    @include bp(tablet) {
+        flex-direction: row-reverse;
+        align-items: center;
+        max-width: 95%; 
+        margin: 0 auto;
+        gap: 30px;
+    }
+
+    @include bp(desktop) {
+        flex-direction: row-reverse;
+        align-items: center;
+        max-width: 1150px; 
+        margin: 0 auto;
+        gap: 40px; 
+        
+        @media (min-width: 1440px) {
+            max-width: 1250px; 
+            gap: 60px; 
+        }
+    }
+}
+
+.about-grid-section {
+    flex: 1.5; 
+    
+    @include bp(desktop) {
+        max-width: 600px; 
+        @media (min-width: 1440px) {
+            max-width: 650px; 
+        }
+    }
+
+    .image-grid {
+        column-count: 2;
+        column-gap: 15px;
+
+        .grid-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 12px;
+
+            img {
+                width: 100%;
+                border-radius: 25px;
+                display: block;
+                object-fit: cover;
+                height: 140px; 
+
+                @include bp(tablet) { height: 160px; }
+
+                @include bp(desktop) {
+                    height: 190px; 
+                    @media (min-width: 1440px) { height: 220px; }
+                }
+            }
+
+            &:nth-child(2) img, &:nth-child(3) img {
+                height: 170px;
+                @include bp(tablet) { height: 190px; }
+                @include bp(desktop) { 
+                    height: 240px; 
+                    @media (min-width: 1440px) { height: 280px; }
+                }
+            }
+        }
+    }
+}
+
+.heritage-heart-section {
+    flex: 1;
+    padding: 0 20px;
+    text-align: left; 
+
+    .section-title {
+        font-family: $font-heading;
+        color: $dark-green;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        
+        /* centered ONLY for mobile */
+        text-align: center; 
+
+        /* resets to left for tablet, laptop, and laptop L */
+        @include bp(tablet) { text-align: left; }
+        @include bp(desktop) { text-align: left; }
+
+        @include bp(desktop) {
+            @media (min-width: 1440px) {
+                font-size: 2rem; 
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+    .text-content p {
+        font-family: $font-main;
+        line-height: 1.4;
+        color: #333;
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+        text-align: left; 
+
+        @include bp(desktop) {
+            max-width: 480px;
+            @media (min-width: 1440px) {
+                font-size: 1.05rem;
+                line-height: 1.6;
+                max-width: 520px;
+            }
+        }
+    }
+}
+
+//START OF FOOTER SECTION
+
+.footer {
+    background-color: $dark-green; 
+    padding: 5rem 3rem 3rem 3rem;
+    
+    @include bp(mobile) {
+        padding: 4rem 1.5rem 2rem 1.5rem;
+    }
+
+    .footer_container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+.footer_links {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr; 
+        gap: 2rem;
+        margin-bottom: 5rem;
+        white-space: normal;
+        @include bp(tablet) {
+            grid-template-columns: 1fr 1fr 1fr 1fr; 
+            gap: 4.5rem;
+            margin-bottom: 4rem;
+        }
+        @include bp(mobile) {
+            grid-template-columns: 1fr 1fr 1fr 1fr; 
+            gap: 1rem;
+            word-break: break-word; //breaks the words
+        }
+    }
+
+    .footer_column {
+        
+        h3 {
+            font-family: $font-main; 
+            color: #E7D1AD; 
+            font-size: 1.4rem;
+            margin: 0 0 1.5rem 0;
+            font-weight: bold;
+
+            @include bp(mobile) {
+                font-size: 1rem;
+            }
+        }
+
+        p {
+            font-family: $font-main;
+            color: white;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0 0 1rem 0;
+
+            strong {
+                font-weight: bold;
+            }
+
+            @include bp(mobile) {
+                font-size: .9rem;
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin-bottom: 1rem;
+
+                a {
+                    text-decoration: none; 
+                    font-family: $font-main;
+                    color: white;
+                    
+                    font-size: 1rem;
+                    transition: opacity 0.2s ease;
+
+                    
+            @include bp(mobile) {
+                font-size: .9rem;
+            }
+
+                    &:hover {
+                        opacity: 0.7; 
+                    }
+                }
+            }
+        }
+    }
+
+    .footer_logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        img {
+            width: 160px;
+            height: auto;
+            border-radius: 50%; 
+        }
+    }
+}
+
+//SCROLL BUTTON UP
+ 
+.back_top {
+position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000; 
+    width: 70px;
+    height: 70px;
+    font-size: 40px;
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: $dark-green; 
+    color: white; 
+    font-weight: bold;
+    text-decoration: none;
+
+    @include bp(mobile) {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        font-size: 0.9rem;
+        width: 50px;
+        height: 50px;
+    }
+}
+

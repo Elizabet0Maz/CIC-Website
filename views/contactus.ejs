@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/category.css">
-    <title>Accessories</title>
-
+    <link rel="stylesheet" href="/css/contactus.css">
+    <title>Aladdin Contact Us</title>
 </head>
-<a id="up"></a>
 <body>
-
 <header class="Nav-Bar">
     <!--OPEN BUTTON HOME-->
     <button id="btnOpen" class="Nav-Bar__open" aria-expanded="false" aria-labelledby="Nav-Label">
@@ -86,48 +83,74 @@
 
 </header>
 
-<!--Green Separator-->
-<div class="separator">
-    <img src = "/Sources/Separator.png" alt = "page break image">
-    <p>“A World of Discovery in Every Aisle”</p>
-</div>
-
-<div class="banner-section">
-    <div class="banner-image">
-        <img src="/Sources/banner-accessories.jpeg" alt="Accessories Collection">
-    </div>
-    <div class="banner-text">
-        <h1>Accessories</h1>
-        <p>Small treasures with big stories. Fine craftsmanship and artisanal treasures to complement your journey.</p>
-    </div>
-</div>
-
-<!-- Green line -->
-<div class="separator-line"></div>
-
-<!--product grid -->
-<div class="product-grid">
+    <main class="contact-page">
         
-        <!-- loops through each product from MongoDB -->
-        <% products.forEach(product => { %>
-            <!--this creates a dynamic link which is automatically connected to the product id page-->
-             <a href="/product/<%= product._id %>">
-                <div class="product-card"> 
-                    <img src="<%= product.images[0] %>" alt="<%= product.name %>">   
-                    <h2><%= product.name %></h2> 
+        <!-- contact us page hero -->
+        <section class="contact-hero"> 
+            <div class="contact-hero__content">
+                <h1 class="contact-hero__title">Contact Us</h1>
+                <p class="contact-hero__text">Whether you are seeking a bespoke gift, have a question about our heritage collections, or simply wish to share a story, our team is here to assist you with a personal touch</p>
+            </div>
+        </section>
+
+        <div class="contact-divider"></div>
+
+        <h2 class="contact-find__title">Find Us Here</h2>
+
+
+        <!-- location & hours section -->
+        <section class="contact-info">
+            <div class="contact-info__details">
+                <h2 class="contact-section-title">Location & Hours</h2>
+                
+                <p class="contact-info__item"> <strong>Address:</strong> Al Zahir Street - Al Rumailah - Ajman</p>
+                
+                <p class="contact-info__item"><strong>Telephone:</strong> +971 056 277 5717</p>
+                
+                <p class="contact-info__item"><strong>Shop Timings:</strong> Monday to Sunday - 10AM-10PM</p>
+
+                <a href="https://wa.me/971562775717" class="whatsapp-btn" target="_blank">Our WhatsApp</a>
+            </div>
+
+            <div class="contact-info__image">
+                <img src="/Sources/imagesAboutContact/Rectangle 49.png" alt="building picture">
+            </div>
+        </section>
+
+
+        <!-- find us map section -->
+        <section class="contact-find">
+            <div class="contact-find__map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.9541869105765!2d55.42979797517064!3d25.40634407757688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f57a77da4f955%3A0x676868732bbe2048!2zQWxhZGRpbiBHZW5lcmFsIFRyYWRpbmcg0KHQo9CS0JXQndCY0KDQqywg0KHQm9CQ0JTQntCh0KLQmCDQmCDQn9CQ0KDQpNCu0JzQldCg0JjQrw!5e0!3m2!1sen!2sae!4v1777828033437!5m2!1sen!2sae" 
+                    class="contact-find__map" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+
+
+        <!-- contact us form section -->
+        <section class="contact-form-section">
+            <h2 class="contact-section-title">Reach Out To Us</h2>
+            <div class="contact-form__container">
+                <div class="contact-form__image-header">
+                    <img src="/Sources/imagesAboutContact/Rectangle 56.png" alt="Ajman View">
                 </div>
-            </a>
-            <% }) %>
-    </div>
+                <form action="/submit-contact" method="POST" class="contact-form">
+                    <input type="text" name="name" placeholder="Name" class="contact-form__input" required>
+                    <input type="email" name="email" placeholder="Email" class="contact-form__input" required>
+                    <textarea name="message" placeholder="Hello! Write your message here..." class="contact-form__textarea" required></textarea>
+                    <button type="submit" class="contact-form__submit">SEND</button>
+                </form>
+            </div>
+        </section>
 
+    </main>
 
-
-
-
-<!--the button to go back to the top-->
-<a href="#up" class="back_top">▲</a>
-
-<footer class="footer">
+    <footer class="footer">
     <div class="footer_container">
         
         <div class="footer_links">

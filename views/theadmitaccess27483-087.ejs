@@ -18,6 +18,7 @@
         </div>
 
         <!--the drop down menus inspired from: https://stackoverflow.com/questions/42548641/how-to-get-value-selected-in-dropdown-menu-from-ejs-template-to-server-side-node-->
+        <!--Categories-->
         <div class="input-items">
             <h3>Product Category:</h3>
             <select name="category" required>
@@ -29,33 +30,29 @@
             </select>
         </div>
             
+        <!--Sub categories-->
         <div class="input-items">
             <h3>Product Sub-Category:</h3>
             <select name="subCategory" required>
                 <option value="" disabled selected>Pick a Subcategory</option>
                 <optgroup label="Accessories">
-                    <option value="Bracelets">Bracelets</option>
+                    <option value="Earrings">Earrings</option>
                     <option value="Necklaces">Necklaces</option>
                 </optgroup>
                 <optgroup label="Fragrances">
                     <option value="Perfumes">Perfumes</option>
-                    <option value="Essential Oils">Essential Oils</option>
-                    <option value="Incense">Incense</option>
+                    <option value="Perfumed Oils">Perfumed Oils</option>
+                    <option value="Deodarants">Deodarants</option>
+                    <option value="Home Fragrances">Home Fragrances</option>
                 </optgroup>
                 <optgroup label="Cosmetics">
-                    <option value="Skincare">Skincare</option>
-                    <option value="Bath & Body">Bath & Body</option>
+                    <option value="Face Care">Face Care</option>
+                    <option value="Body Care">Body Care</option>
                 </optgroup>
                 <optgroup label="Handmade">
-                    <option value="Herbal Teas">Herbal Teas</option>
-                    <option value="Organic Soaps">Organic Soaps</option>
+                    <option value="Soaps">Soaps</option>
                 </optgroup>
             </select>
-        </div>
-        
-        <div class="input-items">
-            <h3>Product Price:</h3>
-            <input name="price" placeholder="Price">
         </div>
         
         <!-- the img posting -->

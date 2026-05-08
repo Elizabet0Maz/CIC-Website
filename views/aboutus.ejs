@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/category.css">
-    <title>Accessories</title>
-
+    <link rel="stylesheet" href="/css/aboutus.css">
+    <title>Aladdin About Us</title>
 </head>
-<a id="up"></a>
 <body>
-
 <header class="Nav-Bar">
     <!--OPEN BUTTON HOME-->
     <button id="btnOpen" class="Nav-Bar__open" aria-expanded="false" aria-labelledby="Nav-Label">
@@ -86,48 +83,69 @@
 
 </header>
 
-<!--Green Separator-->
-<div class="separator">
-    <img src = "/Sources/Separator.png" alt = "page break image">
-    <p>“A World of Discovery in Every Aisle”</p>
-</div>
+    <main>
+       <!-- about us hero section -->
+        <section class="hero-section about-hero">
+            <div class="hero-content">
+                <h1>Our Story</h1>
+                <p>A curated collection where the soul of tradition meets the spirit of the modern explorer.</p>
+            </div>
+        </section>
 
-<div class="banner-section">
-    <div class="banner-image">
-        <img src="/Sources/banner-accessories.jpeg" alt="Accessories Collection">
-    </div>
-    <div class="banner-text">
-        <h1>Accessories</h1>
-        <p>Small treasures with big stories. Fine craftsmanship and artisanal treasures to complement your journey.</p>
-    </div>
-</div>
 
-<!-- Green line -->
-<div class="separator-line"></div>
+        <!-- combined heritage & heart and curated journey section -->
+        <section class="about-combined-section">
+            <h2 class="main-grid-title">A Curated Journey</h2>
 
-<!--product grid -->
-<div class="product-grid">
-        
-        <!-- loops through each product from MongoDB -->
-        <% products.forEach(product => { %>
-            <!--this creates a dynamic link which is automatically connected to the product id page-->
-             <a href="/product/<%= product._id %>">
-                <div class="product-card"> 
-                    <img src="<%= product.images[0] %>" alt="<%= product.name %>">   
-                    <h2><%= product.name %></h2> 
+            <div class="about-combined-flex">
+                <div class="about-grid-section">
+                    <div class="image-grid">
+                        <div class="grid-item"><img src="/Sources/imagesAboutContact/flowersoapimage.png" alt="Traditional flowers and soap"></div>
+                        <div class="grid-item"><img src="/Sources/imagesAboutContact/pinkscarimage.png" alt="Handmade pink scarf"></div>
+                        <div class="grid-item"><img src="/Sources/imagesAboutContact/earringsonstoneimage.png" alt="Artisan pearl earrings"></div>
+                        <div class="grid-item"><img src="/Sources/imagesAboutContact/lavendersoapimage.png" alt="Lavender scented soap"></div>
+                    </div>
                 </div>
-            </a>
-            <% }) %>
-    </div>
 
+                <div class="heritage-heart-section">
+                    <h3 class="section-title">Heritage & Heart</h3>
+                    <div class="text-content">
+                        <p>
+                                Born in the heart of Ajman, Aladdin General Trading was created to be more than a store—it’s a destination.
+                                Inspired by the vibrant spirit of the Emirates, we bring together the finest scents, sweets, and handcrafted treasures under one roof.
+                            </p>
+                            <p>
+                                We believe the best gifts have a soul. That’s why we curate a collection where tradition meets modern style.
+                                From signature fragrances to handcrafted accessories, every item is handpicked for its unique story and quality.
+                            </p>
+                            <p>
+                                Whether you’re a traveler seeking a piece for our heritage or a local looking for a perfect gift, we make every purchase meaningful.
+                                From a small dream to a community favorite, we offer an authentic world of variety that is always welcoming.
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </section> 
 
+        <!-- tradtional finds section -->
+        <section class="traditional-finds-section">
+            <div class="traditional-finds__container">
+                <div class="finds-text-content">
+                    <h3>Traditional Finds</h3>
+                    <p>
+                        From signature Arabic fragrances to traditional sweets, our collection captures the essence of our culture.
+                         Discover handcrafted treasures and unique accessories designed to bring heritage to you.
+                    </p>
+                    <a href="/shop" class="btn-explore">Explore Collection</a>
+                </div>
+                <div class="finds-image-wrapper">
+                    <img src="/Sources/imagesAboutContact/traditionalfindsimage.png" alt="Traditional Aladdin lamps">
+                </div>
+            </div>
+        </section>
+    </main>
 
-
-
-<!--the button to go back to the top-->
-<a href="#up" class="back_top">▲</a>
-
-<footer class="footer">
+    <footer class="footer">
     <div class="footer_container">
         
         <div class="footer_links">

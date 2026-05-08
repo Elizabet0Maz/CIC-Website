@@ -1002,7 +1002,6 @@ div#goog-gt- {
     .category_card {
         border-radius: 20px;
         overflow: hidden; 
-        cursor: pointer;
         flex-direction: column;
         display: block; 
         text-align: left;
@@ -1155,7 +1154,7 @@ div#goog-gt- {
             }
 
             p {
-                color: #333; 
+                color: gray; 
                 line-height: 1.4; 
                 margin: 0 0 1.5rem 0;
                 font-family: $font-main;
@@ -1196,8 +1195,9 @@ div#goog-gt- {
 }
 //END OF HERITAGE SECTION
 
-//START OF GREEN BREAK SECTION. . . 
 
+
+//START OF GREEN BREAK SECTION. . . 
 .separator {
     display: flex;
     position: relative;
@@ -1369,6 +1369,8 @@ div#goog-gt- {
     }
 }
 
+
+
 // START OF COMMENTS CAROUSEL SECTION!!
 
 .stories_section {
@@ -1414,13 +1416,14 @@ div#goog-gt- {
         }
 
 
+
         &::-webkit-scrollbar {
             display: none;
         }
 
         // style of the slides
         &__slide {
-            flex: 0 0 calc(33.333% - 1rem);
+            flex: 0 0 calc(33% - 1rem);
             height: auto;
             scroll-snap-align: center; 
             
@@ -1503,6 +1506,7 @@ div#goog-gt- {
 }
 
 
+
 // the general group of dots
 .stories_slider::scroll-marker-group {
     display: flex;
@@ -1546,7 +1550,9 @@ div#goog-gt- {
         height: .7em;
         width: .7em;
     }
-}
+}   
+
+
 
 // The active dot in the carousel
 .stories_slider__slide::scroll-marker:target-current {
@@ -1734,7 +1740,6 @@ div#goog-gt- {
                 font-size: 1rem;
                 font-weight: bold;
                 color: black;
-                cursor: pointer;
                 
                 .expander {
                     color: #5A826F; 
