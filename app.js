@@ -117,7 +117,7 @@ app.get('/shop/Fragrances/Perfumed-Oils', async (req, res) => {
 app.get('/shop/Fragrances/Home-Fragrances', async (req, res) => {
     const items = await Product.find({ 
         category: 'Fragrances', 
-        subCategory: 'Home Fragrances' 
+        subCategory: 'Home-Fragrances' 
     });
     res.render('home-fragrances', { products: items });
 });
