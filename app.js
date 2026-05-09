@@ -54,7 +54,7 @@ app.get('/shop/Handmade', async (req, res) => {
 app.get('/shop/Fragrances', async (req, res) => {
     //grabs products in the Accessories category
     const items = await Product.find({ category: 'Fragrances' });
-    res.render('fragrance', { products: items });
+    res.render('fragrances', { products: items });
 });
 
 app.get('/shop/Cosmetics', async (req, res) => {
