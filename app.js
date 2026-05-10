@@ -133,7 +133,7 @@ app.get('/shop/Fragrances/Deodarants', async (req, res) => {
 app.get('/shop/Fragrances/Face-Care', async (req, res) => {
     const items = await Product.find({ 
         category: 'Cosmetics', 
-        subCategory: 'Face Care' 
+        subCategory: 'Face-Care' 
     });
     res.render('face-care', { products: items });
 });
@@ -141,7 +141,7 @@ app.get('/shop/Fragrances/Face-Care', async (req, res) => {
 app.get('/shop/Fragrances/Body-Care', async (req, res) => {
     const items = await Product.find({ 
         category: 'Cosmetics', 
-        subCategory: 'Body Care' 
+        subCategory: 'Body-Care' 
     });
     res.render('body-care', { products: items });
 });
