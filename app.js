@@ -24,6 +24,12 @@ const Product = mongoose.model('Product', {
     images: [String] // A list to add multiple image links
 });
 
+//for the contact us page
+const Message = mongoose.model('Message', { 
+    name: String, 
+    email: String, 
+    message: String 
+});
 
 // Homepage
 app.get('/', (req, res) => {
@@ -172,6 +178,19 @@ app.post('/theadmitaccess27483-087', async (req, res) => {
     
     // takes the admin back to the category which just got added
     res.redirect(`/shop/${category}`); 
+});
+
+//contact us post into the database
+
+app.post('/submit-contact', async (req, res) => {
+    //takes the data from the form
+    const newMessage = new Message(req.body);
+    
+    //saves it to the database
+    await newMessage.save();
+    
+    //sends the user back to the contact us page
+    res.redirect('/contactus');
 });
 
 const PORT = 3001;
